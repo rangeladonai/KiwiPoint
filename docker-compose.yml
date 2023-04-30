@@ -21,4 +21,5 @@ services:
       - '3306:3306'
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=letrim
+    volumes:
+      -  ./SQL/init.sql:/docker-entrypoint-initdb.d/init.sql #executa SQL para criação do banco de dados, tabelas e colunas.
