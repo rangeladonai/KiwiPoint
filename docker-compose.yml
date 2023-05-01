@@ -1,8 +1,10 @@
-version: '4'
+version: '3.8'
 
 services:
   apache:
-    image: 'php:8.1-apache'
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: php
     restart: always
     ports:
@@ -13,6 +15,7 @@ services:
       - db
     links:
       - db
+
   db:
     container_name: mysql
     image: mysql:5.7
