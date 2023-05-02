@@ -4,7 +4,7 @@ Será um Sistema de ponto, inspirado no sistema "Tangerino".
 
 Neste projeto, irei utilizar tecnologias que tive pouco contato, para que eu possa melhorar minhas habilidades.
 
-<h2> Como Rodar o projeto em DOCKER </h2>
+<h2> Rodar Projeto em DOCKER </h2>
 <ul>
   <li>Baixe OU Clone o projeto no seu ambiente</li>
   <li>Instale Docker & Docker compose de acordo com seu Sistema Operacional https://www.docker.com/</li>
