@@ -1,7 +1,0 @@
-`docker-compose up -d`  =   inicia containers do projeto
-
-`docker-compose  down`  =   para e remove containers do projeto
-
-`docker exec -it CONTAINER_NAME bash`   =   acessa o shell de um container em execução
-por exemplo: docker exec -it php bash (nesse container eu rodo os comandos composer por ex)
-

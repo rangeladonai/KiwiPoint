@@ -13,3 +13,15 @@ Neste projeto, irei utilizar tecnologias que tive pouco contato, para que eu pos
   <li>Divita-se acessando o endereço <b>localhost</b></li>
   <li>Para parar & desfazer o container do projeto digite <i><b> docker-compose down </b></i> OU <i><b> docker compose down </b></i></li>
 </ul>
+
+<small>Docker Commands:</small>
+<small>
+
+`docker-compose up -d`  =   inicia containers do projeto
+
+`docker-compose  down`  =   para e remove containers do projeto
+
+`docker exec -it CONTAINER_NAME bash`   =   acessa o shell de um container em execução
+por exemplo: docker exec -it php bash (nesse container eu rodo os comandos composer por ex)
+
+</small>
