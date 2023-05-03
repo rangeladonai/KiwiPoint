@@ -5,8 +5,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: php
-    restart: always
+    container_name: php_letrim
     ports:
       - '80:80'
     volumes:
@@ -17,9 +16,8 @@ services:
       - db
 
   db:
-    container_name: mysql
+    container_name: mysql_letrim
     image: mysql:5.7
-    restart: always
     ports:
       - '3306:3306'
     environment:
