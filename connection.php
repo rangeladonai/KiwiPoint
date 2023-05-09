@@ -1,5 +1,13 @@
 <?php
 
+//XAMPP DB Connection
+// $host = 'Letrim';
+// $port = 3306;
+// $user = 'root';
+// $password = '';
+
+
+//Docker DB Connection
 $host = 'db';
 $port = '3306';
 $dbname = 'Letrim';
