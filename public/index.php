@@ -1,2 +1,3 @@
 <?php
-echo 'Inicio';
+require '../controller/sistemaControl.php';
+loadView('home');
