@@ -25,6 +25,7 @@ CREATE TABLE Ponto(
 	idPonto int not null auto_increment primary key,
 	dataPonto DateTime not null,
 	idFuncionario int not null,
+	urlFoto varchar(255),
 	
 	FOREIGN KEY (idFuncionario) REFERENCES Funcionario(idFuncionario)
 );
