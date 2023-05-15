@@ -33,6 +33,6 @@ include '../public/templates/header.php';
         </form>
     </div>
 
-    <script src="/view/home.js"></script>
+    <script src="../view/home.js"></script>
 </body>
 </html>
