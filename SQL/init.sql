@@ -9,7 +9,9 @@ CREATE TABLE Empresa(
   	rua varchar(50),
   	numero int,
   	bairro varchar(50),
-  	cidade varchar(50)
+  	cidade varchar(50),
+	email varchar(150),
+	senha varchar(150)
 );
 
 CREATE TABLE Funcionario(
