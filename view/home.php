@@ -18,7 +18,7 @@ include '../public/templates/header.php';
                 <br>
                 <input type="button" onclick="empresa()" value="Entrar">
                 <br>
-                <small><a href="">Cadastrar Empresa</a></small>
+                <small><a href="../controller/empresaControl.php?action=cadastraEmpresa">Cadastrar Empresa</a></small>
             </div>
 
             <div id="funcionario" name="funcionario">
