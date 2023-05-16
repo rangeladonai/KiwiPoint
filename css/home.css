@@ -1,0 +1,55 @@
+.container {
+    height: 55vh;
+    width: 60vh;
+    border: 1px solid black;
+}
+
+@media (max-width: 75vh) {
+    .container {
+        width: 100%;
+        padding: 0 7vh;
+    }
+}
+
+#empresa{
+    margin: 0;
+}
+
+#emailEmpresa {
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 1vh;
+
+}
+
+#senhaEmpresa {
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 1vh;
+
+}
+#cad_empresa {
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    width: 13vh;
+  }
+
+.entrar_empresa{
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    width: 21vh;
+    
+}
+
+#mostraLoginEmpresa{
+    position: relative;
+    left: 34vh;
+}

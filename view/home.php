@@ -6,19 +6,22 @@ include '../public/templates/header.php';
         <form action="" id="homeForm" name="homeForm" method="post">
             
             <div id="buttons">
-                <input type="button" onclick="mostraLoginEmpresa()" value="Empresa">
+                <input type="button" id="mostraLoginEmpresa" onclick="mostraLoginEmpresa()" value="Empresa">
                 <input type="button" onclick="mostraLoginFuncionario()" value="Funcionario">
             </div>
 
             <div id="empresa" name="empresa">
-                <h3>Entrar como Empresa</h3>
+                <br>
+                <h3 style="text-align:center;">Entrar como Empresa</h3>
+                <br>
                 <input type="text" id="emailEmpresa" name="emailEmpresa" placeholder="Email...">
                 <br>
                 <input type="text" id="senhaEmpresa" name="senhaEmpresa" placeholder="Senha...">
                 <br>
-                <input type="button" onclick="empresa()" value="Entrar">
+                <input type="button" class="entrar_empresa btn btn-success"onclick="empresa()" value="Entrar">
+                
                 <br>
-                <small><a href="">Cadastrar Empresa</a></small>
+                <small><a id="cad_empresa" href="">Cadastrar Empresa</a></small>
             </div>
 
             <div id="funcionario" name="funcionario">
