@@ -1,8 +1,5 @@
-var campoCep = document.getElementById('cepEmpresa');
+var campoCep = document.querySelector('#cepEmpresa');
 let url = `https://viacep.com.br/ws/${campoCep.value}/json/`;
-if (campoCep.lenght == 8){
-    
-}
 
 
 function confirmaCadastraEmpresa(){
