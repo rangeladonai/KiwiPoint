@@ -1,18 +1,47 @@
+body {
+
+    background: linear-gradient(116.82deg, #64e44a 0%, rgba(191, 228, 118) 59.27%, #59975c 97.92%);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    position: inherit;
+
+}
+
 .container {
+    background: white;
     height: 55vh;
     width: 60vh;
     border: 1px solid black;
+    margin-top: 170px;
+    border-radius: 1vh;
+    border-radius: 1vh;
+    border: none;
+
+    box-shadow: 0px 0px 12px 1px lightgrey;
+
 }
 
 @media (max-width: 75vh) {
     .container {
         width: 100%;
-        padding: 0 7vh;
+        padding: 0 0vh;
     }
 }
 
-#empresa{
+#empresa {
     margin: 0;
+    position: relative;
+    bottom: 9vh;
+}
+
+#funcionario{
+    margin: 0;
+    position: relative;
+    bottom: 4vh;
 }
 
 #emailEmpresa {
@@ -32,24 +61,101 @@
     border-radius: 1vh;
 
 }
+
 #cad_empresa {
     display: block;
     margin: 0 auto;
     display: block;
     margin: 0 auto;
     width: 13vh;
-  }
+   
+}
 
-.entrar_empresa{
+.entrar_empresa {
     display: block;
     margin: 0 auto;
     display: block;
     margin: 0 auto;
     width: 21vh;
-    
+
 }
 
-#mostraLoginEmpresa{
+.mostrarLoginEmpresa {
     position: relative;
-    left: 34vh;
+    left: 29.28vh;
+    bottom: 8vh;
+    border: none;
+    width: 13vh;
+    font-weight: bold;
+   
+    cursor: pointer;
+    background: #0f7a0f;
+    cursor: pointer;
+    color: white;
+    
+}
+.mostrarLoginEmpresa:active {
+    background: #7dbf7d;
+}
+.mostrarLoginEmpresa:hover {
+    background: #9ce69c;
+}
+
+.mostrarLoginFuncionario {
+    position: relative;
+    left: 2.9vh;
+    bottom: 8vh;
+    text-align: center;
+    width: 11vh;
+    border: none;
+    background: #0f7a0f;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    /* color: white;*/
+}
+
+.mostrarLoginFuncionario :active{
+    background: #7dbf7d;
+}
+
+.mostrarLoginFuncionario:hover{
+    background: #7dbf7d;
+
+}
+
+.emailEmpresa{
+    text-align: center;
+    width: 23vh;
+}
+
+.senhaEmpresa{
+    text-align: center;
+    width: 23vh;
+}
+
+.codFuncionario{
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 1vh;
+    text-align: center;
+}
+
+.senhaFuncionario{
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 1vh;
+    text-align: center;
+
+}
+.entrarFuncionario{
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    width: 21vh;
 }

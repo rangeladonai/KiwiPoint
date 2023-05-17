@@ -6,17 +6,18 @@ include '../public/templates/header.php';
         <form action="" id="homeForm" name="homeForm" method="post">
             
             <div id="buttons">
-                <input type="button" id="mostraLoginEmpresa" onclick="mostraLoginEmpresa()" value="Empresa">
-                <input type="button" onclick="mostraLoginFuncionario()" value="Funcionario">
+                <img src="../imagem/foto_logo_login.png" style="height: 241px;margin-left: 15vh;margin-top:1px;padding:1vh;"alt="">
+                <input type="button" class="mostrarLoginEmpresa" onclick="mostraLoginEmpresa()" value="Empresa">
+                <input type="button" class="mostrarLoginFuncionario" onclick="mostraLoginFuncionario()" value="Funcionario">
             </div>
 
             <div id="empresa" name="empresa">
                 <br>
-                <h3 style="text-align:center;">Entrar como Empresa</h3>
+                
                 <br>
-                <input type="text" id="emailEmpresa" name="emailEmpresa" placeholder="Email...">
+                <input type="email" id="emailEmpresa" class="emailEmpresa" name="emailEmpresa" placeholder="Email...">
                 <br>
-                <input type="text" id="senhaEmpresa" name="senhaEmpresa" placeholder="Senha...">
+                <input type="password" id="senhaEmpresa" class="senhaEmpresa" name="senhaEmpresa" placeholder="Senha...">
                 <br>
                 <input type="button" class="entrar_empresa btn btn-success"onclick="empresa()" value="Entrar">
                 
@@ -24,14 +25,14 @@ include '../public/templates/header.php';
                 <small><a id="cad_empresa" href="">Cadastrar Empresa</a></small>
             </div>
 
-            <div id="funcionario" name="funcionario">
-                <h3>Entrar como Funcionário</h3>
-                <input type="text" id="codFuncionario" name="codFuncionario" placeholder="Código...">
+            <div id="funcionario" name="funcionario">                
+                <input type="text" id="codFuncionario" class="codFuncionario" name="codFuncionario" placeholder="Código...">
                 <br>
-                <input type="text" id="senhaFuncionario" name="senhaFuncionario" placeholder="Senha...">
+                <input type="password" id="senhaFuncionario" class="senhaFuncionario" name="senhaFuncionario" placeholder="Senha...">
                 <br>
-                <input type="button" onclick="funcionario()" value="Entrar">
+                <input type="button" class="entrarFuncionario btn btn-success"onclick="funcionario()" value="Entrar">
             </div>
+            
 
         </form>
     </div>
