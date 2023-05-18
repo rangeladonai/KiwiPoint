@@ -11,7 +11,7 @@ if (!empty($action)){
     }
 }
 
-/////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////
 
 function cadastraEmpresa()
 {
@@ -24,7 +24,7 @@ function confirmaCadastraEmpresa()
     $empresaModel = new EmpresaModel();
     $insere = $empresaModel->insereEmpresa($_POST['nomeEmpresa'],$_POST['cnpjEmpresa'],$_POST['cepEmpresa'],$_POST['complementoEmpresa'],$_POST['ruaEmpresa'],$_POST['ufEmpresa'],$_POST['numeroEmpresa'],$_POST['bairroEmpresa'],$_POST['cidadeEmpresa'],$_POST['emailEmpresa'],$_POST['senhaEmpresa']);
     if ($insere){
-        header('Location:../view/home.php?msg=500');
+        header('Location:../view/home.php?msg=200');
     } else {
         header('Location:../view/home.php?msg=400');
     }

@@ -12,7 +12,8 @@ class EmpresaModel
         $sql .= " VALUES('$nomeEmpresa','$cnpj','$cep','$complemento','$rua','$uf','$numero','$bairro','$cidade','$email','$senha')";
         try{
             $stmt = $DB->prepare($sql);
-            $stmt->execute();
+            $query = $stmt->execute();
+            return $query;
         }catch(PDOException $e){
             echo $e->getMessage();
             echo ' => ' . $e->getCode();
