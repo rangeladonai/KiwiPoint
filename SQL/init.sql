@@ -21,6 +21,9 @@ CREATE TABLE Funcionario(
 	nomeFuncionario varchar(50) not null,
 	cpf varchar(14) not null,
 	idEmpresa int not null,
+	codigo varchar(50) not null,
+	email varchar(255),
+	senha varchar(255),
 	
 	FOREIGN KEY(idEmpresa) REFERENCES Empresa(idEmpresa)
 );
