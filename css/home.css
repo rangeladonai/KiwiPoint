@@ -13,15 +13,14 @@ body {
 
 .container {
     background: white;
-    height: 55vh;
-    width: 60vh;
-    border: 1px solid black;
-    margin-top: 170px;
-    border-radius: 1vh;
-    border-radius: 1vh;
+    padding: 28px;
+     
+    
+    border-radius: 1vh;    
     border: none;
-
+    position: relative;
     box-shadow: 0px 0px 12px 1px lightgrey;
+    top: 20vh;
 
 }
 
@@ -35,13 +34,13 @@ body {
 #empresa {
     margin: 0;
     position: relative;
-    bottom: 9vh;
+    
 }
 
 #funcionario{
     margin: 0;
     position: relative;
-    bottom: 4vh;
+    padding:47px;
 }
 
 #emailEmpresa {
@@ -49,7 +48,7 @@ body {
     margin: 0 auto;
     display: block;
     margin: 0 auto;
-    border-radius: 1vh;
+    border-radius: 5px;
 
 }
 
@@ -58,19 +57,26 @@ body {
     margin: 0 auto;
     display: block;
     margin: 0 auto;
-    border-radius: 1vh;
+    border-radius: 5px;
 
 }
 
 #cad_empresa {
-    display: block;
-    margin: 0 auto;
-    display: block;
+    
     margin: 0 auto;
     width: 13vh;
+    padding: 108px;
+    color: #666565;
    
 }
 
+#cad_empresa:active{
+    color: blue;
+}
+
+#cad_empresa:hover{
+    color: black;
+}
 .entrar_empresa {
     display: block;
     margin: 0 auto;
@@ -79,20 +85,16 @@ body {
     width: 21vh;
 
 }
-
 .mostrarLoginEmpresa {
     position: relative;
-    left: 29.28vh;
-    bottom: 8vh;
     border: none;
-    width: 13vh;
+    width: 106px;
     font-weight: bold;
-   
+   border-radius: 3px;
     cursor: pointer;
     background: #0f7a0f;
     cursor: pointer;
-    color: white;
-    
+    color: white;    
 }
 .mostrarLoginEmpresa:active {
     background: #7dbf7d;
@@ -103,16 +105,14 @@ body {
 
 .mostrarLoginFuncionario {
     position: relative;
-    left: 2.9vh;
-    bottom: 8vh;
+    border-radius: 3px;
     text-align: center;
-    width: 11vh;
+    width: 106px;
     border: none;
     background: #0f7a0f;
     cursor: pointer;
     color: white;
-    font-weight: bold;
-    /* color: white;*/
+    font-weight: bold;    
 }
 
 .mostrarLoginFuncionario :active{
@@ -139,8 +139,9 @@ body {
     margin: 0 auto;
     display: block;
     margin: 0 auto;
-    border-radius: 1vh;
+    border-radius: 5px;
     text-align: center;
+    width: 23vh;
 }
 
 .senhaFuncionario{
@@ -148,8 +149,9 @@ body {
     margin: 0 auto;
     display: block;
     margin: 0 auto;
-    border-radius: 1vh;
+    border-radius: 5px;
     text-align: center;
+    width: 23vh;
 
 }
 .entrarFuncionario{
@@ -159,3 +161,55 @@ body {
     margin: 0 auto;
     width: 21vh;
 }
+.mostrarPinPonto{
+    position: relative;
+    border-radius: 3px;
+    text-align: center;
+    border: none;
+    width: 106px;
+    background: #0f7a0f;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+.mostrarPinPonto :active{
+    background: #7dbf7d;
+}
+
+.mostrarPinPonto:hover{
+    background: #7dbf7d;
+
+}
+#pin{
+    margin: 0;
+    position: relative;
+    padding: 47px;
+}
+.entrarPin{
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    width: 21vh;
+}
+#buttons{
+    margin-left: 3px;
+}
+#relogio{
+  position: absolute;
+  margin-left: 88px;
+/*  border: 1px solid #f7f7f7;*/
+  padding: 4px 12px;
+  
+  color: #000000;
+  font-size: 2em;
+  font-family: 'Alarm Clock';
+  
+  /*border-radius: 4px;*/
+}
+@font-face {
+    font-family: 'Alarm Clock';
+    src: url('../css/fonto_clock/alarm clock.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }

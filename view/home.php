@@ -3,12 +3,30 @@ include '../public/templates/header.php';
 ?>
 <body>
     <div class="container">
-        <form action="" id="homeForm" name="homeForm" method="post">
+        <div id="relogio">
             
-            <div id="buttons">
-                <img src="../imagem/foto_logo_login.png" style="height: 241px;margin-left: 15vh;margin-top:1px;padding:1vh;"alt="">
+            <script>
+            setInterval(function(){
+                const time = document.querySelector('#relogio');
+                var date = new Date();
+                var hora = date.getHours();
+                var min = date.getMinutes();
+                var seg = date.getSeconds();
+                var formatHor = hora.toString().padStart(2,'0');
+                var formatMin = min.toString().padStart(2,'0');
+                var formatSeg = seg.toString().padStart(2, '0');
+                time.textContent = formatHor+':'+formatMin+':'+formatSeg;
+            })
+            </script>
+        </div>
+        
+        <form action="" id="homeForm" name="homeForm" method="post">
+            <img src="../imagem/foto_logo_login.png" style="height: 250px;"alt="">
+            <br>
+            <div id="buttons">                
                 <input type="button" class="mostrarLoginEmpresa" onclick="mostraLoginEmpresa()" value="Empresa">
                 <input type="button" class="mostrarLoginFuncionario" onclick="mostraLoginFuncionario()" value="Funcionario">
+                <input type="button" class="mostrarPinPonto" onclick="mostraPinPonto()" value="Registrar">
             </div>
 
             <div id="empresa" name="empresa">
@@ -31,6 +49,14 @@ include '../public/templates/header.php';
                 <input type="password" id="senhaFuncionario" class="senhaFuncionario" name="senhaFuncionario" placeholder="Senha...">
                 <br>
                 <input type="button" class="entrarFuncionario btn btn-success"onclick="funcionario()" value="Entrar">
+            </div>
+            <div id="pin" name="pin">     
+                
+                <input type="text" id="codFuncionario" class="codFuncionario" name="codFuncionario" placeholder="Código...">
+                <br>
+                <input type="password" id="senhaFuncionario" class="senhaFuncionario" name="senhaFuncionario" placeholder="Senha...">
+                <br>
+                <input type="button" class="entrarPin btn btn-success"onclick="pin()" value="Registrar">
             </div>
             
 
