@@ -6,7 +6,9 @@ CREATE TABLE Empresa(
 	nomeEmpresa varchar(255) not null,
   	cnpj varchar(18) not null,
   	cep varchar(9),
+	complemento varchar(100),
   	rua varchar(50),
+	uf varchar(50),
   	numero int,
   	bairro varchar(50),
   	cidade varchar(50),
@@ -19,6 +21,9 @@ CREATE TABLE Funcionario(
 	nomeFuncionario varchar(50) not null,
 	cpf varchar(14) not null,
 	idEmpresa int not null,
+	codigo varchar(50) not null,
+	email varchar(255),
+	senha varchar(255),
 	
 	FOREIGN KEY(idEmpresa) REFERENCES Empresa(idEmpresa)
 );

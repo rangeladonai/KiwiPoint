@@ -1,5 +1,6 @@
 <?php
 include '../public/templates/header.php';
+include '../controller/sistemaControl.php';
 ?>
 <body>
     <div class="container">
@@ -40,7 +41,7 @@ include '../public/templates/header.php';
                 <input type="button" class="entrar_empresa btn btn-success"onclick="empresa()" value="Entrar">
                 
                 <br>
-                <small><a id="cad_empresa" href="">Cadastrar Empresa</a></small>
+                <small><a href="../controller/empresaControl.php?action=cadastraEmpresa">Cadastrar Empresa</a></small>
             </div>
 
             <div id="funcionario" name="funcionario">                
