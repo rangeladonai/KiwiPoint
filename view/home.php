@@ -34,14 +34,14 @@ include '../controller/sistemaControl.php';
                 <br>
                 
                 <br>
-                <input type="email" id="emailEmpresa" class="emailEmpresa" name="emailEmpresa" placeholder="Email...">
+                <input type="email" id="emailEmpresaLogin" class="emailEmpresaLogin" name="emailEmpresaLogin" placeholder="Email...">
                 <br>
-                <input type="password" id="senhaEmpresa" class="senhaEmpresa" name="senhaEmpresa" placeholder="Senha...">
+                <input type="password" id="senhaEmpresaLogin" class="senhaEmpresaLogin" name="senhaEmpresaLogin" placeholder="Senha...">
                 <br>
                 <input type="button" class="entrar_empresa btn btn-success"onclick="empresa()" value="Entrar">
                 
                 <br>
-                <small><a href="../controller/empresaControl.php?action=cadastraEmpresa">Cadastrar Empresa</a></small>
+                <small><a id="cad_empresa" href="../controller/empresaControl.php?action=cadastraEmpresa">Cadastrar Empresa</a></small>
             </div>
 
             <div id="funcionario" name="funcionario">                
