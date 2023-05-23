@@ -20,3 +20,4 @@ function mostraPinPonto(){
     $('#pin').show();
     
 }
+

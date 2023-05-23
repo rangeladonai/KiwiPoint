@@ -15,7 +15,9 @@ body {
     background: white;
     padding: 28px;
      
-    
+    justify-content: center;
+    display: flex;
+    align-items: center;
     border-radius: 1vh;    
     border: none;
     position: relative;
@@ -64,8 +66,8 @@ body {
 #cad_empresa {
     
     margin: 0 auto;
-    width: 13vh;
-    padding: 108px;
+    margin-left: 109px;
+    
     color: #666565;
    
 }
@@ -197,9 +199,10 @@ body {
 }
 #relogio{
   position: absolute;
-  margin-left: 88px;
+  right: 15vh;
 /*  border: 1px solid #f7f7f7;*/
   padding: 4px 12px;
+  top: 2vh;
   
   color: #000000;
   font-size: 2em;
@@ -213,3 +216,45 @@ body {
     font-weight: normal;
     font-style: normal;
   }
+
+
+
+.loginCadastrar{
+    position: relative;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+.caixa-branca-login{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #a7f386;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:0.5s ease-in-out;
+}
+.caixa-branca-login.active{
+    left: 50%;
+    
+}
+
+/*.container-login-cadastrar{
+    background: rgb(230, 5, 5);
+    padding: 28px;
+     
+    
+    border-radius: 1vh;    
+    border: none;
+    position: relative;
+    box-shadow: 0px 0px 12px 1px lightgrey;
+    top: 0;
+
+}*/
