@@ -5,16 +5,7 @@ include '../controller/sistemaControl.php';
 
 <body>
     <div class="container">
-        <div class="container-login-cadastrar">
-            <div class="loginCadastrar">
-                <h2>Possui uma conta?</h2>
-                
-                <button class="cadastrarEmpresa">Cadastrar Empresa</button>
-            </div>
-            <div class="caixa-branca-login">
-
-            </div>
-        </div>
+        
         <div id="relogio">
 
             <script>

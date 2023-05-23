@@ -14,15 +14,13 @@ body {
 .container {
     background: white;
     padding: 28px;
-     
-    justify-content: center;
-    display: flex;
+    justify-content: center;    
     align-items: center;
     border-radius: 1vh;    
     border: none;
     position: relative;
     box-shadow: 0px 0px 12px 1px lightgrey;
-    top: 20vh;
+    top: 11vh;
 
 }
 
