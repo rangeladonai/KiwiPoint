@@ -21,3 +21,9 @@ function mostraPinPonto(){
     
 }
 
+function empresa(){
+    var action = '../controller/empresaControl.php?action=loginEmpresa';
+    var form = document.querySelector('#homeForm');
+    form.action = action;
+    form.submit();
+}

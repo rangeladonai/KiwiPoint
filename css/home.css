@@ -1,5 +1,4 @@
 body {
-
     background: linear-gradient(116.82deg, #64e44a 0%, rgba(191, 228, 118) 59.27%, #59975c 97.92%);
     background-attachment: fixed;
     background-repeat: no-repeat;
@@ -8,7 +7,6 @@ body {
     align-items: center;
     justify-content: center;
     position: inherit;
-
 }
 
 .container {
@@ -21,7 +19,6 @@ body {
     position: relative;
     box-shadow: 0px 0px 12px 1px lightgrey;
     top: 11vh;
-
 }
 
 @media (max-width: 75vh) {

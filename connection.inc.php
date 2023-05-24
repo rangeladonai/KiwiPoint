@@ -22,7 +22,7 @@ try {
         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
         PDO::MYSQL_ATTR_LOCAL_INFILE => true
     ]);
-    echo '\conectado/';
+    //echo '\conectado/';
 } catch (PDOException $e) {
     die('Erro na conexão: ' . $e->getMessage());
 }
