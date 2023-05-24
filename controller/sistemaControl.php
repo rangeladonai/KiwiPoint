@@ -19,5 +19,3 @@ if (!empty($_GET['msg'])){
         break;
     }
 }
-
-require '../inc/pdo.php';

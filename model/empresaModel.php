@@ -28,7 +28,7 @@ class EmpresaModel
         require '../connection.inc.php';
     
         $sql = "SELECT idEmpresa, nomeEmpresa, cnpj, cep, complemento, rua, uf, numero, bairro, cidade, email, senha";
-        $sql .= " FROM empresa";
+        $sql .= " FROM Empresa";
         $sql .= " WHERE email = :emailEmpresa";
         $sql .= " AND senha = :senhaEmpresa";
         $sql .= " LIMIT 1";

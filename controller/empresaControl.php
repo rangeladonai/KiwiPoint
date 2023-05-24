@@ -7,7 +7,7 @@ class Empresa
     function cadastraEmpresa()
     {
         $_SESSION['action'] = 'cadastraEmpresa';
-        return '../view/cadastraEmpresa.php';
+        include '../view/cadastraEmpresa.php';
     }
     
     function confirmaCadastraEmpresa()
@@ -19,10 +19,10 @@ class Empresa
         $insere = $empresaModel->insereEmpresa($_POST['nomeEmpresa'],$_POST['cnpjEmpresa'],$_POST['cepEmpresa'],$_POST['complementoEmpresa'],$_POST['ruaEmpresa'],$_POST['ufEmpresa'],$_POST['numeroEmpresa'],$_POST['bairroEmpresa'],$_POST['cidadeEmpresa'],$_POST['emailEmpresa'],$_POST['senhaEmpresa']);
         if ($insere){
             $_SESSION['situacao'] = 'cadastradaEmpresa';
-            return '../view/home.php?msg=200';
+            include '../view/home.php?msg=200';
         } else {
             $_SESSION['situacao'] = 'erroCadastroEmpresa';
-            return '../view/home.php?msg=400';
+            include '../view/home.php?msg=400';
         }
     }
 
@@ -45,14 +45,27 @@ class Empresa
         $empresaModel = new EmpresaModel();
         $validaLoginEmpresa = $empresaModel->validaLoginEmpresa($_SESSION['action'], $_SESSION['emailEmpresaLogin'], $_SESSION['senhaEmpresaLogin']);
 
-        if ($validaLoginEmpresa){
-            $row = $validaLoginEmpresa->fetch(PDO::FETCH_ASSOC);
-            var_dump($row);
+        if ($validaLoginEmpresa->rowCount()){ //verifica se a quantidade de colunas retornada pela consulta é diferente positivo.
+            $row = $validaLoginEmpresa->fetch(PDO::FETCH_ASSOC); //fetch na consulta, transforma a consulta em dados retornados por ela.
+
+            $_SESSION['idEmpresa'] = $row['idEmpresa'];
+            $_SESSION['nomeEmpresa'] = $row['nomeEmpresa'];
+            $_SESSION['cnpj'] = $row['cnpj'];
+            $_SESSION['cep'] = $row['cep'];
+            $_SESSION['complemento'] = $row['complemento'];
+            $_SESSION['rua'] = $row['rua'];
+            $_SESSION['uf'] = $row['uf'];
+            $_SESSION['numero'] = $row['numero'];
+            $_SESSION['bairro'] = $row['bairro'];
+            $_SESSION['cidade'] = $row['cidade'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['senha'] = $row['senha'];
+
             $_SESSION['situacao'] = 'logouComoEmpresa';
-            return '../view/painelPrincipal.php';
+            include '../view/painelPrincipal.php';
         } else {
-            $_SESSION['situacao'] == 'erroLogar';
-            return '../view/home.php?msg=401';
+            $_SESSION['situacao'] = 'erroLogar';
+            include '../view/home.php?msg=401';
         }
 
     }

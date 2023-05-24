@@ -22,19 +22,6 @@ include '../controller/sistemaControl.php';
     <div class="container">
         
         <div id="relogio" name="relogio">
-            <script>
-                setInterval(function () {
-                    const time = document.querySelector('#relogio');
-                    var date = new Date();
-                    var hora = date.getHours();
-                    var min = date.getMinutes();
-                    var seg = date.getSeconds();
-                    var formatHor = hora.toString().padStart(2, '0');
-                    var formatMin = min.toString().padStart(2, '0');
-                    var formatSeg = seg.toString().padStart(2, '0');
-                    time.textContent = formatHor + ':' + formatMin + ':' + formatSeg;
-                })
-            </script>
         </div>
 
         <form action="" id="homeForm" name="homeForm" method="post">
@@ -85,15 +72,8 @@ include '../controller/sistemaControl.php';
             </div>
         </form>
     </div>
-
-    <script src="../view/home.js">
-        const cadEmpresa = document.querySelector('.cadastrarEmpresa');
-        const caixabranca = document.querySelector('.caixa-branca-login');
-
-        cadEmpresa.onclick = function () {
-            caixabranca.classList.add('active');
-        }
-    </script>
+    
+    <script src="./home.js"></script>
 </body>
 
 </html>
