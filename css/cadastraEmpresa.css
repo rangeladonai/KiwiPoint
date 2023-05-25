@@ -14,6 +14,101 @@ legend.scheduler-border {
     
 }
 
-.nomeEmpresa{
-    width: 2000px;
+#nomeEmpresa{
+    width: 31vh;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    font-size: 21px;
+    margin-top: 4px;
+}
+#confirma{
+    margin-left: 55vh;
+
+}
+
+#label_cnpj{
+    font-weight: bold;
+}
+#label_email    {
+    font-weight: bold;
+}
+#label_senha    {
+    font-weight: bold;
+    position: relative;
+    left: 31vh;
+}
+#label_senhaConf    {
+    font-weight: bold;
+    position: relative;
+    left: 40vh;
+}
+#label_empresa    {
+    font-weight: bold;
+    position: relative;
+    width: 5vh;
+}
+#label_cep   {
+    font-weight: bold;
+    position: relative;
+    left: 3px;
+    
+}
+
+#label_uf{
+    font-weight: bold;
+    position: relative;
+    left: 92px;
+}
+#numeroEmpresa{
+    width: 6vh;
+}
+.telefoneEmpresa{
+    width: 120px;
+}
+#label_telefone{
+    position: relative;
+    font-weight: bold;
+    left: 235px;
+}
+
+#ufEmpresa{
+    width: 5vh;
+}
+#label_endereco{
+    font-weight: bold;
+    position: relative;
+    left: 112px;
+}
+
+#label_numero{
+    font-weight: bold;
+    position: relative;
+    left: 265px;
+}
+
+.emailEmpresaCad{
+    text-align: center;
+    width: 35vh;    
+}
+
+.senhaEmpresaCad{
+    text-align: center;
+    width: 14vh;
+}
+#senhaEmpresaConfirma{
+    text-align: center;
+    width: 14vh;
+}
+
+.ruaEmpresa{
+    text-align: center;
+    width: 14vh;
+}
+
+.complementoEmpresa{
+    width: 380px;
 }
