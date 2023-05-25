@@ -6,7 +6,7 @@ include_once '../public/templates/header.php';
 <body>
     <div class="container">
 
-        <img src="../imagem/foto_logo_login.png" style="height: 168px;margin-left:96px" alt="">
+        <img src="../imagem/foto_logo_login.png" style="margin-left:-16px;height: 102px;width: 155px;" alt="">
         <form action="../controller/empresaControl.php?action=confirmaCadastraEmpresa" id="cadastraEmpresa"
             name="cadastraEmpresa" method="post">
             <fieldset class='scheduler-border teste'>
