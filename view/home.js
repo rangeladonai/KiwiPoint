@@ -28,6 +28,28 @@ function empresa(){
     form.submit();
 }
 
+function pin(){
+    var cod = document.getElementById('codFuncionario').value;
+    var senha = document.getElementById('codFuncionario').value;
+
+    if (cod == '' || cod == null || senha == '' || senha == null || senha == undefined || cod == undefined){
+        alert('Há campos que precisam ser preenchidos!');
+        return;
+    }
+
+    const url = '../controller/pontoControl.php?action=registraPonto';
+    formData = new FormData();
+    formData.append('codFuncionario', cod);
+    formData.append('senhaFuncionario', senha);
+
+    fetch(url,{
+        method: "POST",
+        body: formData    
+    }).then((response) => response.json).then((data) => {
+        console.log(data);
+    })
+}
+
 setInterval(function () {
     const time = document.querySelector('#relogio');
     var date = new Date();

@@ -17,5 +17,8 @@ if (!empty($_GET['msg'])){
         case 401:
             echo '<script>alert("Falha ao logar no sistema, informações incorretas.")</script>';
         break;
+        case 402:
+            echo '<script>alert("Dados incorretos.")</script>';
+        break;
     }
 }
