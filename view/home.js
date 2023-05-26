@@ -28,11 +28,22 @@ function empresa(){
     form.submit();
 }
 
-function pin(){
-    var cod = document.getElementById('codFuncionario').value;
-    var senha = document.getElementById('codFuncionario').value;
+function validaCampoPreenchido(input){
+    let vazio = [undefined, '', null, false];
 
-    if (cod == '' || cod == null || senha == '' || senha == null || senha == undefined || cod == undefined){
+    for (let i = 0; i < vazio.length; i++){
+        if (input.value == vazio[i]){
+            return false;
+        }
+    }
+    return true;  
+}
+
+function pin(){
+    var cod = document.getElementById('codFuncionario');
+    var senha = document.getElementById('codFuncionario');
+
+    if (!validaCamposPreenchido(cod) || !validaCamposPreenchido(senha)){
         alert('Há campos que precisam ser preenchidos!');
         return;
     }
