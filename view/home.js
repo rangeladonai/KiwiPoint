@@ -32,7 +32,7 @@ function validaCampoPreenchido(input){
     let vazio = [undefined, '', null, false];
 
     for (let i = 0; i < vazio.length; i++){
-        if (input.value == vazio[i]){
+        if (input == vazio[i]){
             return false;
         }
     }
@@ -40,14 +40,14 @@ function validaCampoPreenchido(input){
 }
 
 function pin(){
-    var cod = document.getElementById('codFuncionario');
-    var senha = document.getElementById('codFuncionario');
+    var cod = document.getElementById('codFuncionario2').value;
+    var senha = document.getElementById('senhaFuncionario2').value;
 
-    if (!validaCamposPreenchido(cod) || !validaCamposPreenchido(senha)){
+    if (!validaCampoPreenchido(cod) || !validaCampoPreenchido(senha)){
         alert('Há campos que precisam ser preenchidos!');
         return;
     }
-
+    
     const url = '../controller/pontoControl.php?action=registraPonto';
     formData = new FormData();
     formData.append('codFuncionario', cod);
@@ -55,10 +55,10 @@ function pin(){
 
     fetch(url,{
         method: "POST",
-        body: formData    
+        body: formData
     }).then((response) => response.json).then((data) => {
         console.log(data);
-    })
+    });
 }
 
 setInterval(function () {

@@ -7,16 +7,20 @@ class Ponto
     function registraPonto()
     {
         require '../model/pontoModel.php';
+        require '../connection.inc.php';
+        $return = array();
+        
         $codFuncionario = $_POST['codFuncionario'];
         $senhaFuncionario = $_POST['senhaFuncionario'];
+        $return = ['msg'=>'rowCountNegativo'];
 
         $pontoModel = new PontoModel();
         $validaFuncionario = $pontoModel->validaFuncionario($codFuncionario, $senhaFuncionario);
-
         if ($validaFuncionario->rowCount()){
-
-        } else {
-            return '../view/home.php?msg=402';
+            $row = $validaFuncionario->fetch(PDO::FETCH_ASSOC);
+            $return = $row;
         }
+        
+        echo json_encode($return);
     }
 }

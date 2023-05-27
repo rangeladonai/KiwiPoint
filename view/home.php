@@ -39,10 +39,10 @@ include '../controller/sistemaControl.php';
 
                 <br>
                 <input type="email" id="emailEmpresaLogin" class="emailEmpresaLogin" name="emailEmpresaLogin"
-                    placeholder="Email...">
+                    placeholder="Email..." required>
                 <br>
                 <input type="password" id="senhaEmpresaLogin" class="senhaEmpresaLogin" name="senhaEmpresaLogin"
-                    placeholder="Senha...">
+                    placeholder="Senha..." required>
                 <br>
                 <input type="button" class="entrar_empresa btn btn-success" onclick="empresa()" value="Entrar">
 
@@ -52,21 +52,21 @@ include '../controller/sistemaControl.php';
 
             <div id="funcionario" name="funcionario">
                 <input type="text" id="codFuncionario" class="codFuncionario" name="codFuncionario"
-                    placeholder="Código...">
+                    placeholder="Código..." required>
                 <br>
                 <input type="password" id="senhaFuncionario" class="senhaFuncionario" name="senhaFuncionario"
-                    placeholder="Senha...">
+                    placeholder="Senha..." required>
                 <br>
                 <input type="button" class="entrarFuncionario btn btn-success" onclick="funcionario()" value="Entrar">
             </div>
             
             <div id="pin" name="pin">
 
-                <input type="text" id="codFuncionario" class="codFuncionario" name="codFuncionario"
-                    placeholder="Código...">
+                <input type="text" id="codFuncionario2" class="codFuncionario" name="codFuncionario2"
+                    placeholder="Código..." required>
                 <br>
-                <input type="password" id="senhaFuncionario" class="senhaFuncionario" name="senhaFuncionario"
-                    placeholder="Senha...">
+                <input type="password" id="senhaFuncionario2" class="senhaFuncionario" name="senhaFuncionario2"
+                    placeholder="Senha..." required>
                 <br>
                 <input type="button" class="entrarPin btn btn-success" onclick="pin()" value="Registrar">
             </div>
