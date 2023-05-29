@@ -39,28 +39,6 @@ function validaCampoPreenchido(input){
     return true;  
 }
 
-function pin(){
-    var cod = document.getElementById('codFuncionario2').value;
-    var senha = document.getElementById('senhaFuncionario2').value;
-
-    if (!validaCampoPreenchido(cod) || !validaCampoPreenchido(senha)){
-        alert('Há campos que precisam ser preenchidos!');
-        return;
-    }
-    
-    const url = '../controller/pontoControl.php?action=registraPonto';
-    formData = new FormData();
-    formData.append('codFuncionario', cod);
-    formData.append('senhaFuncionario', senha);
-
-    fetch(url,{
-        method: "POST",
-        body: formData
-    }).then((response) => response.json).then((data) => {
-        console.log(data);
-    });
-}
-
 setInterval(function () {
     const time = document.querySelector('#relogio');
     var date = new Date();
@@ -79,3 +57,25 @@ const caixabranca = document.querySelector('.caixa-branca-login');
 cadEmpresa.onclick = function () {
     caixabranca.classList.add('active');
 };
+
+function pin(){
+    var cod = document.getElementById('codFuncionario2').value;
+    var senha = document.getElementById('senhaFuncionario2').value;
+
+    if (!validaCampoPreenchido(cod) || !validaCampoPreenchido(senha)){
+        alert('Há campos que precisam ser preenchidos!');
+        return;
+    }
+    
+    const url = '../controller/pontoControl.php?action=registraPonto';
+    formData = new FormData();
+    formData.append('codFuncionario', cod);
+    formData.append('senhaFuncionario', senha);
+
+    fetch(url,{
+        method: "POST",
+        body: formData
+    }).then((response) => response.json()).then((data) => {
+        console.log(data);
+    });
+}

@@ -12,15 +12,33 @@ class Ponto
         
         $codFuncionario = $_POST['codFuncionario'];
         $senhaFuncionario = $_POST['senhaFuncionario'];
-        $return = ['msg'=>'rowCountNegativo'];
-
+        $dataTime = date('Y-m-d H:i:s');
+        
         $pontoModel = new PontoModel();
         $validaFuncionario = $pontoModel->validaFuncionario($codFuncionario, $senhaFuncionario);
         if ($validaFuncionario->rowCount()){
-            $row = $validaFuncionario->fetch(PDO::FETCH_ASSOC);
-            $return = $row;
+            while ($row = $validaFuncionario->fetch(PDO::FETCH_ASSOC)){
+                $return['id'] = $row['idFuncionario'];
+                $return['nome'] = $row['nomeFuncionario'];
+                $return['email'] = $row['email'];
+                $return['codigo'] = $row['codigo'];
+                $return['senha'] = $row['senha'];
+                $return['cpf'] = $row['cpf'];
+            }
         }
+
+        // if (!empty($return)){
+        //     $_SESSION['idFuncionario'] = $return['id'];
+        //     $_SESSION['nomeFuncionario'] = $return['nomeFuncionario'];
+        //     $_SESSION['email'] = $return['email'];
+        //     $_SESSION['codigo'] = $return['codigo'];
+        //     $_SESSION['senha'] = $return['senha'];
+
+        //     $pontoModel->inserePonto($_SESSION['idFuncionario'], $dataTime);
+        // }
         
+        //var_dump($return);
+        //die;
         echo json_encode($return);
     }
 }
