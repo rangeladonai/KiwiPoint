@@ -1,4 +1,6 @@
 <?php
+require '../inc/action.php';
+
 //Verifica Sessão
 if (!isset($_SESSION)){
     session_start();

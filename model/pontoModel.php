@@ -11,7 +11,7 @@ class PontoModel
             return;
         }
 
-        $sql = "  SELECT idFuncionario, nomeFuncionario, email, codigo, senha";
+        $sql = "  SELECT idFuncionario, nomeFuncionario, email, codigo, senha, cpf";
         $sql .= " FROM Funcionario";
         $sql .= " WHERE codigo = :codigo";
         $sql .= " AND senha = :senha";

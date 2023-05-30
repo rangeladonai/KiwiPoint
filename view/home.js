@@ -72,10 +72,18 @@ function pin(){
     formData.append('codFuncionario', cod);
     formData.append('senhaFuncionario', senha);
 
-    fetch(url,{
-        method: "POST",
+    fetch(url, {
+        method: 'POST',
         body: formData
-    }).then((response) => response.json()).then((data) => {
+    }).then((response) => response.json())
+    .then((data) => {
         console.log(data);
-    });
+        if (data.msg == 'erro'){
+            alert('ERRO! Senha ou código incorreto, Ponto não registrado.');
+            return;
+        }
+        alert('Sucesso! PONTO REGISTRADO!');
+    }).catch((error) => {
+        console.log(error);
+    })
 }
