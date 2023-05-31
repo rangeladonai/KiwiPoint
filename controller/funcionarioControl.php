@@ -1,26 +1,44 @@
 <?php
-$action = '';
-if (!empty($_GET['action'])){
-    $action = $_GET['action'];
-} else if (!empty($_POST['action'])){
-    $action = $_POST['action'];
-}
-if (!empty($action)){
-    if (function_exists($action)){
-        call_user_func($action);
-    }
-}
-
+$classe = new funcionarioControl();
+require '../inc/autoloader.php';
 ////////////////////////////////////////
-
-function confirmaFuncionario()
+class funcionarioControl
 {
-    require '../model/FuncionarioModel.php';
-    $FuncionarioModel = new FuncionarioModel();
-    $insere = $FuncionarioModel->insereFuncionario($_POST['idFuncionario'],$_POST['nameFuncionario'],$_POST['cfp'],$_POST['idEmpresa'],$_POST['codigo'],$_POST['email'],$_POST['senha']);
-    if ($insere){
-        header('Location:../view/home.php?msg=200');
-    } else {
-        header('Location:../view/home.php?msg=400');
+    function LoginFuncionario()
+    {
+        $_SESSION['action'] = 'loginFuncionario';
+    
+        if (!empty($_POST['codFuncionario'])) {
+            $_SESSION['codFuncionario'] = $_POST['codFuncionario'];
+        } else {
+            unset($_SESSION['codFuncionario']);
+        }
+        if (!empty($_POST['senhaFuncionario'])) {
+            $_SESSION['senhaFuncionario'] = $_POST['senhaFuncionario'];
+        } else {
+            unset($_SESSION['senhaFuncionario']);
+        }
+    
+        require '../model/funcionarioModel.php';
+        $funcionarioModel = new FuncionarioModel();
+        $validaLoginFuncionario = $funcionarioModel->validaLoginFuncionario($_SESSION['action'], $_SESSION['codFuncionario'], $_SESSION['senhaFuncionario']);
+    
+        if ($validaLoginFuncionario->rowCount()) {
+            $row = $validaLoginFuncionario->fetch(PDO::FETCH_ASSOC); 
+    
+            $_SESSION['idFuncionario'] = $row['idFuncionario'];
+            $_SESSION['nomeFuncionario'] = $row['nomeFuncionario'];
+            $_SESSION['cpf'] = $row['cpf'];
+            $_SESSION['idEmpresa'] = $row['idEmpresa'];
+            $_SESSION['codigo'] = $row['codigo'];
+            $_SESSION['email'] = $row['email'];
+            $_SESSION['senha'] = $row['senha'];
+    
+            $_SESSION['situacao'] = 'logouComoFuncionario';
+            include '../view/painelPrincipal.php';
+        } else {
+            $_SESSION['situacao'] = 'erroLogar';
+            include '../view/home.php?msg=401';
+        }
     }
 }

@@ -4,6 +4,7 @@ include '../controller/sistemaControl.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +21,7 @@ include '../controller/sistemaControl.php';
 
 <body>
     <div class="container">
-        
+
         <div id="relogio" name="relogio">
         </div>
 
@@ -29,8 +30,7 @@ include '../controller/sistemaControl.php';
             <br>
             <div id="buttons">
                 <input type="button" class="mostrarLoginEmpresa" onclick="mostraLoginEmpresa()" value="Empresa">
-                <input type="button" class="mostrarLoginFuncionario" onclick="mostraLoginFuncionario()"
-                    value="Funcionario">
+                <input type="button" class="mostrarLoginFuncionario" onclick="mostraLoginFuncionario()" value="Funcionario">
                 <input type="button" class="mostrarPinPonto" onclick="mostraPinPonto()" value="Registrar">
             </div>
 
@@ -38,11 +38,9 @@ include '../controller/sistemaControl.php';
                 <br>
 
                 <br>
-                <input type="email" id="emailEmpresaLogin" class="emailEmpresaLogin" name="emailEmpresaLogin"
-                    placeholder="Email..." required>
+                <input type="email" id="emailEmpresaLogin" class="emailEmpresaLogin" name="emailEmpresaLogin" placeholder="Email..." required>
                 <br>
-                <input type="password" id="senhaEmpresaLogin" class="senhaEmpresaLogin" name="senhaEmpresaLogin"
-                    placeholder="Senha..." required>
+                <input type="password" id="senhaEmpresaLogin" class="senhaEmpresaLogin" name="senhaEmpresaLogin" placeholder="Senha..." required>
                 <br>
                 <input type="button" class="entrar_empresa btn btn-success" onclick="empresa()" value="Entrar">
 
@@ -51,28 +49,24 @@ include '../controller/sistemaControl.php';
             </div>
 
             <div id="funcionario" name="funcionario">
-                <input type="text" id="codFuncionario" class="codFuncionario" name="codFuncionario"
-                    placeholder="Código..." required>
+                <input type="text" id="codFuncionario" class="codFuncionario" name="codFuncionario" placeholder="Código..." required>
                 <br>
-                <input type="password" id="senhaFuncionario" class="senhaFuncionario" name="senhaFuncionario"
-                    placeholder="Senha..." required>
+                <input type="password" id="senhaFuncionario" class="senhaFuncionario" name="senhaFuncionario" placeholder="Senha..." required>
                 <br>
                 <input type="button" class="entrarFuncionario btn btn-success" onclick="funcionario()" value="Entrar">
             </div>
-            
+
             <div id="pin" name="pin">
 
-                <input type="text" id="codFuncionario2" class="codFuncionario" name="codFuncionario2"
-                    placeholder="Código..." required>
+                <input type="text" id="codFuncionario2" class="codFuncionario" name="codFuncionario2" placeholder="Código..." required>
                 <br>
-                <input type="password" id="senhaFuncionario2" class="senhaFuncionario" name="senhaFuncionario2"
-                    placeholder="Senha..." required>
+                <input type="password" id="senhaFuncionario2" class="senhaFuncionario" name="senhaFuncionario2" placeholder="Senha..." required>
                 <br>
                 <input type="button" class="entrarPin btn btn-success" onclick="pin()" value="Registrar">
             </div>
         </form>
     </div>
-    
+
     <script src="./home.js"></script>
 </body>
 

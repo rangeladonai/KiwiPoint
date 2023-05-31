@@ -1,5 +1,5 @@
 <?php
-include '../controller/sistemaControl.php';
+//include '../controller/sistemaControl.php';
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +18,8 @@ include '../controller/sistemaControl.php';
 
 </head>
 <body>
-    <?php echo 'PAINEL PRINCIPAL'; ?>
+    <?php echo 'PAINEL PRINCIPAL'; 
+    echo isset($_SESSION['nomeFuncionario']); //teste pra ver se ta logando
+    ?>
 </body>
 </html>

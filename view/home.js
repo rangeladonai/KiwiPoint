@@ -18,7 +18,6 @@ function mostraPinPonto(){
     $('#empresa').hide();
     $('#funcionario').hide();
     $('#pin').show();
-    
 }
 
 function empresa(){
@@ -86,4 +85,11 @@ function pin(){
     }).catch((error) => {
         console.log(error);
     })
+}
+
+function funcionario(){
+    var action = '../controller/funcionarioControl.php?action=LoginFuncionario';
+    var form = document.querySelector('#homeForm');
+    form.action = action;
+    form.submit();
 }

@@ -19,4 +19,26 @@ class FuncionarioModel
             echo ' => ' . $e->getCode();
         }
     }
-}
+
+    function validaLoginFuncionario($action, $codigo, $senha)
+    {
+        if (empty($action)){
+            return 'faltou informar o action';
+        }
+        require '../connection.inc.php';
+    
+        $sql = "SELECT idFuncionario, nomeFuncionario, cpf, idEmpresa, codigo, email, senha";
+        $sql .= " FROM funcionario";
+        $sql .= " WHERE codigo = :codigoFuncionario";
+        $sql .= " AND senha = :senhaFuncionario";
+        $sql .= " LIMIT 1";
+    
+        $query = $DB->prepare($sql);
+        $query->bindParam(':codigoFuncionario', $codigo);
+        $query->bindParam(':senhaFuncionario', $senha);
+        $query->execute(); // Executa a consulta
+    
+        return $query;
+    }
+
+}    
