@@ -12,7 +12,10 @@ class Ponto
         $senhaFuncionario = $_REQUEST['senhaFuncionario'];
         $result = ['msg' => 'erro'];
         $dataTime = date('Y-m-d H:i:s');
-
+        $mes = date('m');
+        $ano = date('d');
+        $dia = date('Y');
+        
         $pontoModel = new PontoModel();
         $validaFuncionario = $pontoModel->validaFuncionario($codFuncionario, $senhaFuncionario);
         if ($validaFuncionario->rowCount()){
@@ -24,11 +27,24 @@ class Ponto
                 $_SESSION['senha'] = $row['senha'];
                 $_SESSION['cpf'] = $row['cpf'];
                 $_SESSION['dataHoraUltimoPonto'] = $dataTime;
-                $pontoModel->inserePonto($_SESSION['id'], $dataTime);
+                $pontoModel->inserePonto($_SESSION['id'], $dataTime, null, $mes, $dia, $ano);
             }
             $result = ['msg' => 'sucesso'];
         }
 
         echo json_encode($result);
+    }
+
+    function consultaPontoUsuario()
+    {
+        $_SESSION['action'] = 'consultaPontoUsuario';
+
+        if (!empty($_REQUEST['mes'])){
+            $_SESSION['mes'] = $_REQUEST['mes'];
+        } else {
+            unset($_SESSION['mes']);
+        }
+
+        include '../view/consultaPonto.php';
     }
 }

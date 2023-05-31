@@ -1,5 +1,6 @@
 <?php
 require '../inc/action.php';
+date_default_timezone_set('America/Sao_Paulo');
 
 //Verifica Sessão
 if (!isset($_SESSION)){
