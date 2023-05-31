@@ -35,16 +35,15 @@ class Ponto
         echo json_encode($result);
     }
 
-    function consultaPontoUsuario()
+    function consultaPontoMes()
     {
-        $_SESSION['action'] = 'consultaPontoUsuario';
+        $_SESSION['action'] = 'consultaPontoMes';
 
         if (!empty($_REQUEST['mes'])){
             $_SESSION['mes'] = $_REQUEST['mes'];
         } else {
             unset($_SESSION['mes']);
         }
-
         include '../view/consultaPonto.php';
     }
 }

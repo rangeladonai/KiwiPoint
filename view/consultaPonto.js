@@ -1,3 +1,4 @@
-function alteraMes(mes){
-    var content = document.getElementById('content');
+function alteraMes(){
+    let form = document.getElementById('consultaPonto');
+    form.submit();
 }

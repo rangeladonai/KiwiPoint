@@ -48,13 +48,18 @@ class PontoModel
             return;
         }
         
-        $sql  = "SELECT ponto.idPonto, ponto.dataPonto, ponto.idFuncionario, ponto.urlFoto, funcionario.nomeFuncionario, funcionario.idEmpresa, funcionario.cpf";
-        $sql .= " FROM ponto";
-        $sql .= " INNER JOIN funcionario ON (ponto.idFuncionario = funcionario.idFuncionario)";
-        $sql .= " WHERE ponto.idFuncionario = '$idFuncionario'";
+        $sql  = "SELECT Ponto.idPonto, Ponto.dataPonto, Ponto.idFuncionario, Ponto.urlFoto, Funcionario.nomeFuncionario, Funcionario.idEmpresa, Funcionario.cpf";
+        $sql .= " FROM Ponto";
+        $sql .= " INNER JOIN Funcionario ON (Ponto.idFuncionario = Funcionario.idFuncionario)";
+        $sql .= " WHERE Ponto.idFuncionario = '$idFuncionario'";
+
+        if (!empty($mes)){
+            $sql .= " AND ponto.mesPonto = '$mes'";
+        }
 
         $query = $DB->prepare($sql);
         $query->execute();
         return $query;
     }
+
 }
