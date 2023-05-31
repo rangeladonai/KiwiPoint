@@ -21,3 +21,9 @@ function mostraPinPonto(){
     
 }
 
+function funcionario() {
+  
+ 
+    window.location.href = './painelPrincipal.php';
+    }
+
