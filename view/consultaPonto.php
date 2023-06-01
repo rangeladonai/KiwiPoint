@@ -1,5 +1,5 @@
 <?php
-include '../controller/sistemaControl.php';
+//include '../controller/sistemaControl.php';
 include '../connection.inc.php';
 ?>
 
@@ -25,8 +25,9 @@ include '../connection.inc.php';
             <form action="../controller/pontoControl.php?action=consultaPontoMes" id="consultaPonto" name="consultaPonto" method="POST">
                 <thead>
                     <div id="cabecalho">
+                        <?=var_dump($_REQUEST)?>
                         <label for="mes">Mês</label>
-                        <select name="mes" id="mes" onchange="alteraMes()">
+                        <select name="mes" id="mes">
                             <option value="">Selecione</option>
                             <option value="1">Janeiro</option>
                             <option value="2">Fevereiro</option>
@@ -41,6 +42,7 @@ include '../connection.inc.php';
                             <option value="11">Novembro</option>
                             <option value="12">Dezembro</option>
                         </select>
+                        <input type="button" onclick="alteraMes()" value="Pesquisar">
                         <a href="../controller/pdfControl.php?action=montaPDF" style="float:right;"><img src="../imagem/pdf.png" title="Baixar PDF do Mês"></a>
                     </div>
                 </thead>
@@ -54,10 +56,7 @@ include '../connection.inc.php';
                     
                     <tbody id="content">
                     <?php
-                        $_SESSION['id'] = 1;
-                        $_SESSION['action'] = 'consultaPontoUsuario';
-                        $_SESSION['mes'] = null;
-
+                        $_SESSION['id'] = 1; //APENAS PARA TESTE, DELETAR ESSA LINHA
                         require '../model/pontoModel.php';
                         $pontoModel = new PontoModel();
                         $pesquisaPontos = $pontoModel->pesquisaPontos($_SESSION['action'], $_SESSION['id'], $_SESSION['mes']);
