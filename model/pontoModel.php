@@ -54,7 +54,7 @@ class PontoModel
         $sql .= " WHERE Ponto.idFuncionario = '$idFuncionario'";
 
         if (!empty($mes)){
-            $sql .= " AND ponto.mesPonto = '$mes'";
+            $sql .= " AND Ponto.mesPonto = '$mes'";
         }
 
         $query = $DB->prepare($sql);

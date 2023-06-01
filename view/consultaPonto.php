@@ -24,8 +24,7 @@ include '../connection.inc.php';
         <div class="">
             <form action="../controller/pontoControl.php?action=consultaPontoMes" id="consultaPonto" name="consultaPonto" method="POST">
                 <thead>
-                    <div id="cabecalho">
-                        <?=var_dump($_REQUEST)?>
+                    <div id="cabecalho">    
                         <label for="mes">Mês</label>
                         <select name="mes" id="mes">
                             <option value="">Selecione</option>
