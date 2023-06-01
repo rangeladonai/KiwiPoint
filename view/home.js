@@ -21,6 +21,10 @@ function mostraPinPonto(){
 }
 
 function empresa(){
+    if (!validaCampoPreenchido(document.getElementById('emailEmpresaLogin').value) && !validaCampoPreenchido(document.getElementById('senhaEmpresaLogin').value)){
+        alert('há campos que precisam ser preenchidos');
+        return;
+    }
     var action = '../controller/empresaControl.php?action=loginEmpresa';
     var form = document.querySelector('#homeForm');
     form.action = action;

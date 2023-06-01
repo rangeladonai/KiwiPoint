@@ -33,7 +33,10 @@ CREATE TABLE Ponto(
 	dataPonto DateTime not null,
 	idFuncionario int not null,
 	urlFoto varchar(255),
-	
+	mesPonto int not null,
+	diaPonto int not null,
+	anoPonto int not null,
+
 	FOREIGN KEY (idFuncionario) REFERENCES Funcionario(idFuncionario)
 );
 

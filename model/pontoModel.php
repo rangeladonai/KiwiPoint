@@ -25,11 +25,11 @@ class PontoModel
         return $query;
     }
 
-    function inserePonto($idFuncionario, $dataTimePonto, $urlFoto = null)
+    function inserePonto($idFuncionario, $dataTimePonto, $mesPonto, $diaPonto, $anoPonto, $urlFoto = NULL)
     {
         require '../connection.inc.php';
-        $sql = " INSERT INTO Ponto(idFuncionario, dataPonto, urlFoto)";
-        $sql.= " VALUES('$idFuncionario', '$dataTimePonto', '$urlFoto')";
+        $sql = " INSERT INTO Ponto(idFuncionario, dataPonto, urlFoto, mesPonto, diaPonto, anoPonto)";
+        $sql.= " VALUES('$idFuncionario', '$dataTimePonto', '$urlFoto', '$mesPonto', '$diaPonto', '$anoPonto')";
 
         try{
             $insert = $DB->prepare($sql);
@@ -39,4 +39,27 @@ class PontoModel
             throw new Exception($e);
         }
     }
+
+    function pesquisaPontos($action, $idFuncionario, $mes = null)
+    {
+        require '../connection.inc.php';
+        if (empty(func_get_args())){
+            throw new Exception('pesquisaTodosPontos: parametros inválidos OU vazios');
+            return;
+        }
+        
+        $sql  = "SELECT Ponto.idPonto, Ponto.dataPonto, Ponto.idFuncionario, Ponto.urlFoto, Funcionario.nomeFuncionario, Funcionario.idEmpresa, Funcionario.cpf";
+        $sql .= " FROM Ponto";
+        $sql .= " INNER JOIN Funcionario ON (Ponto.idFuncionario = Funcionario.idFuncionario)";
+        $sql .= " WHERE Ponto.idFuncionario = '$idFuncionario'";
+
+        if (!empty($mes)){
+            $sql .= " AND Ponto.mesPonto = '$mes'";
+        }
+
+        $query = $DB->prepare($sql);
+        $query->execute();
+        return $query;
+    }
+
 }
