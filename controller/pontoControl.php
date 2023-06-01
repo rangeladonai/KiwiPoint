@@ -27,8 +27,8 @@ class Ponto
                 $_SESSION['senha'] = $row['senha'];
                 $_SESSION['cpf'] = $row['cpf'];
                 $_SESSION['dataHoraUltimoPonto'] = $dataTime;
-                $pontoModel->inserePonto($_SESSION['id'], $dataTime, null, $mes, $dia, $ano);
             }
+            $pontoModel->inserePonto($_SESSION['id'], $dataTime, null, $mes, $dia, $ano);
             $result = ['msg' => 'sucesso'];
         }
 
