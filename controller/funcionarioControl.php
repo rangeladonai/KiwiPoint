@@ -1,6 +1,6 @@
 <?php
 $classe = new funcionarioControl();
-require '../inc/autoloader.php';
+require '../controller/sistemaControl.php';
 ////////////////////////////////////////
 class funcionarioControl
 {

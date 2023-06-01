@@ -1,9 +1,11 @@
 <?php
 //include '../controller/sistemaControl.php';
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,9 +19,30 @@
     <!--CSS. Cole aqui embaixo o CSS proprio da pagina-->
 
 </head>
+
 <body>
-    <?php echo 'PAINEL PRINCIPAL'; 
-    echo isset($_SESSION['nomeFuncionario']); //teste pra ver se ta logando
-    ?>
+    <p>PAINEL PRINCIPAL</p><br>
+    <input class='input' type="text" name="responsavel" placeholder="Responsável pela aula" value="<?php echo isset($_SESSION['nomeFuncionario']) ? $_SESSION['nomeFuncionario'] : ''; ?>" readonly>
+
+    <br>
+    <input type="button" value="Logout" onclick="log()">
+
+
 </body>
+
+<script>
+    function log() {
+        var end = '../view/home.php';
+        window.location.href = end;
+    }
+    var session = document.getElementById('sessionNome');
+    sidebar.addEventListener("mouseenter", () => {
+        sidebar.classList.remove("close");
+    });
+
+    sidebar.addEventListener("mouseleave", () => {
+        sidebar.classList.add("close");
+    });
+</script>
+
 </html>
