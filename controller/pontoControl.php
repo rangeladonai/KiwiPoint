@@ -1,6 +1,8 @@
 <?php
+if (!isset($_SESSION))
+    session_start();
 $classe = new Ponto;
-require '../controller/sistemaControl.php';
+require '../inc/action.php';
 //////
 class Ponto
 {
@@ -28,7 +30,7 @@ class Ponto
                 $_SESSION['cpf'] = $row['cpf'];
                 $_SESSION['dataHoraUltimoPonto'] = $dataTime;
             }
-            $pontoModel->inserePonto($_SESSION['id'], $dataTime, null, $mes, $dia, $ano);
+            $pontoModel->inserePonto($_SESSION['id'], $dataTime, $mes, $dia, $ano, null);
             $result = ['msg' => 'sucesso'];
         }
 

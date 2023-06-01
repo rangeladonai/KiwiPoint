@@ -25,7 +25,7 @@ class PontoModel
         return $query;
     }
 
-    function inserePonto($idFuncionario, $dataTimePonto, $urlFoto = null, $mesPonto, $diaPonto, $anoPonto)
+    function inserePonto($idFuncionario, $dataTimePonto, $mesPonto, $diaPonto, $anoPonto, $urlFoto = NULL)
     {
         require '../connection.inc.php';
         $sql = " INSERT INTO Ponto(idFuncionario, dataPonto, urlFoto, mesPonto, diaPonto, anoPonto)";
