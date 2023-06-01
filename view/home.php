@@ -1,6 +1,3 @@
-<?php
-include '../controller/sistemaControl.php';
-?>
 
 <!DOCTYPE html>
 <html lang="en">

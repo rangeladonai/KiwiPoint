@@ -1,8 +1,6 @@
 <?php
-$classe = new Empresa();
-include '../inc/autoloader.php';
-
-class Empresa
+include '../model/empresaModel.php';
+class Empresa extends EmpresaModel
 {
     function cadastraEmpresa()
     {
@@ -14,9 +12,7 @@ class Empresa
     {
         $_SESSION['action'] = 'confirmaCadastraEmpresa';
 
-        require '../model/empresaModel.php';
-        $empresaModel = new EmpresaModel();
-        $insere = $empresaModel->insereEmpresa($_POST['nomeEmpresa'],$_POST['cnpjEmpresa'],$_POST['cepEmpresa'],$_POST['complementoEmpresa'],$_POST['ruaEmpresa'],$_POST['ufEmpresa'],$_POST['numeroEmpresa'],$_POST['bairroEmpresa'],$_POST['cidadeEmpresa'],$_POST['emailEmpresa'],$_POST['senhaEmpresa']);
+        $insere = $this->insereEmpresa($_POST['nomeEmpresa'],$_POST['cnpjEmpresa'],$_POST['cepEmpresa'],$_POST['complementoEmpresa'],$_POST['ruaEmpresa'],$_POST['ufEmpresa'],$_POST['numeroEmpresa'],$_POST['bairroEmpresa'],$_POST['cidadeEmpresa'],$_POST['emailEmpresa'],$_POST['senhaEmpresa']);
         if ($insere){
             $_SESSION['situacao'] = 'cadastradaEmpresa';
             include '../view/home.php?msg=200';
@@ -41,9 +37,7 @@ class Empresa
             unset($_SESSION['senhaEmpresaLogin']);
         }
         
-        require '../model/empresaModel.php';
-        $empresaModel = new EmpresaModel();
-        $validaLoginEmpresa = $empresaModel->validaLoginEmpresa($_SESSION['action'], $_SESSION['emailEmpresaLogin'], $_SESSION['senhaEmpresaLogin']);
+        $validaLoginEmpresa = $this->validaLoginEmpresa($_SESSION['action'], $_SESSION['emailEmpresaLogin'], $_SESSION['senhaEmpresaLogin']);
 
         if ($validaLoginEmpresa->rowCount()){ //verifica se a quantidade de colunas retornada pela consulta é diferente positivo.
             $row = $validaLoginEmpresa->fetch(PDO::FETCH_ASSOC); //fetch na consulta, transforma a consulta em dados retornados por ela.
@@ -70,3 +64,5 @@ class Empresa
 
     }
 }
+$classe = new Empresa();
+include '../inc/action.php';
