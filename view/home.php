@@ -1,4 +1,6 @@
-
+<?php
+require '../controller/sistemaControl.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

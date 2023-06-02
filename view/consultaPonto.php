@@ -28,21 +28,21 @@ include '../connection.inc.php';
                         <label for="mes">Mês</label>
                         <select name="mes" id="mes">
                             <option value="">Selecione</option>
-                            <option value="1">Janeiro</option>
-                            <option value="2">Fevereiro</option>
-                            <option value="3">Março</option>
-                            <option value="4">Abril</option>
-                            <option value="5">Maio</option>
-                            <option value="6">Junho</option>
-                            <option value="7">Julho</option>
-                            <option value="8">Agosto</option>
-                            <option value="9">Setembro</option>
-                            <option value="10">Outubro</option>
-                            <option value="11">Novembro</option>
-                            <option value="12">Dezembro</option>
+                            <option value="1" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '1') echo 'selected'; ?> >Janeiro</option>
+                            <option value="2" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '2') echo 'selected'; ?>  >Fevereiro</option>
+                            <option value="3" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '3') echo 'selected'; ?>  >Março</option>
+                            <option value="4" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '4') echo 'selected'; ?> >Abril</option>
+                            <option value="5" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '5') echo 'selected'; ?> >Maio</option>
+                            <option value="6" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '6') echo 'selected'; ?> >Junho</option>
+                            <option value="7" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '7') echo 'selected'; ?> >Julho</option>
+                            <option value="8" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '8') echo 'selected'; ?> >Agosto</option>
+                            <option value="9" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '9') echo 'selected'; ?> >Setembro</option>
+                            <option value="10" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '10') echo 'selected'; ?> >Outubro</option>
+                            <option value="11" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '11') echo 'selected'; ?> >Novembro</option>
+                            <option value="12" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '12') echo 'selected'; ?> >Dezembro</option>
                         </select>
                         <input type="button" onclick="alteraMes()" value="Pesquisar">
-                        <a href="../controller/pdfControl.php?action=montaPDF" style="float:right;"><img src="../imagem/pdf.png" title="Baixar PDF do Mês"></a>
+                        <img src="../imagem/pdf.png" title="Baixar PDF do Mês" onclick="pdf()" style="float: right; cursor:pointer">
                     </div>
                 </thead>
 
@@ -68,6 +68,8 @@ include '../connection.inc.php';
                                     .'<td class="" scope="row">' . $row['nomeFuncionario'] . '</td>'
                                     .'</tr>';
                             }
+                        } else {
+                            echo '<td class="" scope="row" style="color: red"> NÃO HOUVE APONTAMENTOS REFERENTE AO MÊS SELECIONADO. </td>';
                         }
                         ?>
                     </tbody>

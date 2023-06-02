@@ -56,10 +56,10 @@ class Empresa extends EmpresaModel
             $_SESSION['senha'] = $row['senha'];
 
             $_SESSION['situacao'] = 'logouComoEmpresa';
-            include '../view/painelPrincipal.php';
+            header('Location:../view/painelPrincipal.php');
         } else {
             $_SESSION['situacao'] = 'erroLogar';
-            include '../view/home.php?msg=401';
+            header('Location:../view/home.php?msg=402');
         }
 
     }
