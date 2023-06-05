@@ -35,9 +35,11 @@ class funcionarioControl
             $_SESSION['senha'] = $row['senha'];
     
             $_SESSION['situacao'] = 'logouComoFuncionario';
+
             include '../view/painelPrincipal.php';
-        } else {
+        }else{
             $_SESSION['situacao'] = 'erroLogar';
+
             include '../view/home.php?msg=401';
         }
     }
