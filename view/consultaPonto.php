@@ -27,7 +27,7 @@ include '../connection.inc.php';
                     <div id="cabecalho">    
                         <label for="mes">Mês</label>
                         <select name="mes" id="mes">
-                            <option value="">Selecione</option>
+                            <option value="">Todos</option>
                             <option value="1" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '1') echo 'selected'; ?> >Janeiro</option>
                             <option value="2" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '2') echo 'selected'; ?>  >Fevereiro</option>
                             <option value="3" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '3') echo 'selected'; ?>  >Março</option>
@@ -42,7 +42,7 @@ include '../connection.inc.php';
                             <option value="12" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '12') echo 'selected'; ?> >Dezembro</option>
                         </select>
                         <input type="button" onclick="alteraMes()" value="Pesquisar">
-                        <img src="../imagem/pdf.png" title="Baixar PDF do Mês" onclick="pdf()" style="float: right; cursor:pointer">
+                        <img src="../imagem/pdf.png" title="Baixar PDF do Mês" onclick="pdf()" style="float: right; cursor:pointer; max-width: 32px;">
                     </div>
                 </thead>
 

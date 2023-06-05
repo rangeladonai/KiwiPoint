@@ -7,10 +7,20 @@ class pdfControl extends PontoModel
 {
     function montaPDF()
     {
-        var_dump($_REQUEST);
-        var_dump($_SESSION);
-        //realizar consulta do mes selecionado, do usuario logado, e da empresa em que ele esta cadastrado
-        die('acabou aqui');
+        $conteudo = array();
+        $pontoModel = new PontoModel();
+        $consultaPontosMes = $pontoModel->pesquisaPontos($_GET['action'], $_SESSION['id'], $_REQUEST['mes']);
+        if ($consultaPontosMes->rowCount()){
+            while ($rowPontosMes = $consultaPontosMes->fetch(PDO::FETCH_ASSOC)){
+                $conteudo[] = $rowPontosMes;
+            }
+        }
+        
+        // echo '<pre>';
+        // var_dump($conteudo);
+        // echo '</pre>';
+
+        die();
     }
 }
 $classe = new pdfControl();
