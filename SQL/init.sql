@@ -33,7 +33,12 @@ CREATE TABLE Ponto(
 	dataPonto DateTime not null,
 	idFuncionario int not null,
 	urlFoto varchar(255),
-	
+	mesPonto int not null,
+	diaPonto int not null,
+	anoPonto int not null,
+
 	FOREIGN KEY (idFuncionario) REFERENCES Funcionario(idFuncionario)
 );
 
+INSERT INTO `Letrim`.`Empresa` (`nomeEmpresa`, `cnpj`, `cep`, `complemento`, `rua`, `uf`, `numero`, `bairro`, `cidade`, `email`, `senha`) VALUES ('Senai-Sul', '03774819000102', '12345666', 'InstituiçãoSenai', 'Av. Cel Procopio Gomes', 'SC', '911', 'Bucarein', 'Joinville', 'senai@gmail.com', 'senai');
+INSERT INTO `Letrim`.`Funcionario` (`nomeFuncionario`, `cpf`, `idEmpresa`, `codigo`, `email`, `senha`) VALUES ('Rangel Adonai', '12345678900', '1', '123', 'rangel@gmail.com', '123');
