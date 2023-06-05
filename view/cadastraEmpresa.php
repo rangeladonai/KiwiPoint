@@ -1,7 +1,7 @@
 <?php
 include_once '../public/templates/header.php';
 ?>
-<link rel="stylesheet" href="../css/cadastraEmpresa.css">
+
 
 <body>
     <div class="container">

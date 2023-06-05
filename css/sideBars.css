@@ -1,0 +1,45 @@
+.sidebar{
+   background-color: #f2f2f2;
+  width: 234px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+}
+
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+  
+  .content {
+    margin-left: 220px;
+    padding: 20px;
+  }
+  a {
+    border: none;
+    text-decoration: none;
+    color: black;
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  a:hover {
+    background-color: rgb(215, 215, 230);
+  }
+  .caixa-sidebar{
+    margin: auto;
+    margin-left: 3px;
+  }
+
+  .bx{
+    padding: 11px;
+  }
