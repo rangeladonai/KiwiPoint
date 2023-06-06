@@ -22,7 +22,9 @@ Neste projeto, irei utilizar tecnologias que tive pouco contato, para que eu pos
   <li>No arquivo connection.php, comente a conexão com docker, e descomente a conexão com XAMPP</li>
 </ul>
 
-<small>Docker Commands:</small>
+<hr>
+
+<h3>Docker Commands:</h3>
 <small>
 
 `docker-compose up -d`  =   inicia containers do projeto
