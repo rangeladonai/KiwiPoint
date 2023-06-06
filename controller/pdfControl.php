@@ -17,10 +17,6 @@ class pdfControl extends PontoModel
                 $conteudoPonto[] = $rowPontosMes;
             }
         }
-        // echo '<pre>';
-        // var_dump($conteudoPonto);
-        // echo '</pre>';
-        // die;
         $this->pdf($conteudoPonto);
     }
 
@@ -31,7 +27,7 @@ class pdfControl extends PontoModel
         $this->montaConteudo();
         
         echo '<tbody>';
-        for ($i = 0; $i < $conteudo; $i++){
+        for ($i = 0; $i < count($conteudo); $i++){
             echo '<tr>'
                 . '<td>'
                 . $conteudo[$i]['idPonto']
