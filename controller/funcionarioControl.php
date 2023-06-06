@@ -33,7 +33,10 @@ class funcionarioControl
             $_SESSION['codigo'] = $row['codigo'];
             $_SESSION['email'] = $row['email'];
             $_SESSION['senha'] = $row['senha'];
-    
+            $_SESSION['nomeEmpresa'] = $row['nomeEmpresa'];
+            $_SESSION['cnpj'] = $row['cnpj'];
+            $_SESSION['cep'] = $row['cep'];
+            $_SESSION['numero'] = $row['numero'];
             $_SESSION['situacao'] = 'logouComoFuncionario';
 
             include '../view/painelPrincipal.php';

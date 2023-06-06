@@ -7,7 +7,6 @@ class pdfControl extends PontoModel
 {
     function montaPDF()
     {
-        $_SESSION['idEmpresa'] = 1;
         $conteudoPonto = array();
         
         $pontoModel = new PontoModel();
@@ -22,7 +21,6 @@ class pdfControl extends PontoModel
 
     function pdf($conteudo)
     {
-        
         $this->montaCabecalhoEmpresa();
         $this->montaConteudo();
         

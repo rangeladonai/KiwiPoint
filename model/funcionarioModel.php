@@ -27,15 +27,14 @@ class FuncionarioModel
         }
         require '../connection.inc.php';
     
-        $sql = "SELECT idFuncionario, nomeFuncionario, cpf, idEmpresa, codigo, email, senha";
+        $sql = "SELECT funcionario.idFuncionario, funcionario.nomeFuncionario, funcionario.cpf, funcionario.idEmpresa, funcionario.codigo, funcionario.email, funcionario.senha, empresa.nomeEmpresa, empresa.cnpj, empresa.cep, empresa.numero";
         $sql .= " FROM funcionario";
-        $sql .= " WHERE codigo = :codigoFuncionario";
-        $sql .= " AND senha = :senhaFuncionario";
+        $sql .= " INNER JOIN empresa ON (funcionario.idEmpresa = empresa.idEmpresa)";
+        $sql .= " WHERE funcionario.codigo = '$codigo'";
+        $sql .= " AND funcionario.senha = '$senha'";
         $sql .= " LIMIT 1";
     
         $query = $DB->prepare($sql);
-        $query->bindParam(':codigoFuncionario', $codigo);
-        $query->bindParam(':senhaFuncionario', $senha);
         $query->execute(); // Executa a consulta
     
         return $query;
