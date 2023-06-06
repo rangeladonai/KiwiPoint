@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('America/Sao_Paulo');
 if (!isset($_SESSION))
     session_start();
 $classe = new Ponto;
@@ -15,8 +16,8 @@ class Ponto
         $result = ['msg' => 'erro'];
         $dataTime = date('Y-m-d H:i:s');
         $mes = date('m');
-        $ano = date('d');
-        $dia = date('Y');
+        $dia = date('d');
+        $ano = date('Y');
         
         $pontoModel = new PontoModel();
         $validaFuncionario = $pontoModel->validaFuncionario($codFuncionario, $senhaFuncionario);

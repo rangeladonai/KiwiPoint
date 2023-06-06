@@ -26,7 +26,7 @@ class pdfControl extends PontoModel
 
     function pdf($conteudo)
     {
-        include '../vendor/autoload.php';
+        
         $this->montaCabecalhoEmpresa();
         $this->montaConteudo();
         
