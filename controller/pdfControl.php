@@ -26,7 +26,6 @@ class pdfControl extends PontoModel
 
     function pdf($conteudo)
     {
-        ob_start();
         include '../vendor/autoload.php';
         $this->montaCabecalhoEmpresa();
         $this->montaConteudo();
@@ -53,13 +52,7 @@ class pdfControl extends PontoModel
         </div>
         </html>';
 
-        $arquivo = 'folhaDePonto.pdf';
-        $html->ob_get_clean();
-        $html->utf8_encode($html);
-        $mpdf = new mPDF('Folha de Ponto', 'A4');
-        $mpdf->WriteHTML($html);
-        $mpdf->Output();
-        $mpdf->Output($arquivo, 'I');
+ 
     }
 
     function montaCabecalhoEmpresa()
