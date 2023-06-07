@@ -1,3 +1,6 @@
+<script>
+    alert('Pressione CTRL + P para abrir as opções de impressão');
+</script>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,12 +23,29 @@
         #table-info-empresa{
             text-align: center;
         }
+        #logo{
+            width: 150px;
+        }
+        #cabecalho-pdf{
+            padding: 20px;
+            text-align: center;
+            display: flex;
+        }
+        #tituloPDF{
+            position: relative;
+            margin: 0 auto;
+            left: -70px;
+        }
     </style>
 </head>
 <body>
+    <br>
     <div class="container">
         <div id="cabecalho-empresa">
-            <h1 id="tituloPDF">Folha de Ponto</h1>
+            <div id="cabecalho-pdf">
+                <img src="../imagem/logo-pdf.png" alt="" id="logo">
+                <h1 id="tituloPDF">Folha de Ponto</h1>
+            </div>
             <div id="info-empresa">
                 <table class="table" id="table-info-empresa">
                     <tr>
@@ -45,27 +65,67 @@
                         </td>
                     </tr>
                 </table>
+                <table class="table" id="table-info-empresa">
+                    <tr>
+                        <td>
+                            <label for="" class="labelCampo">Colaborador:</label>
+                            <label for=""><?=$conteudo['nomeFuncionario']?></label>
+                            <label for="" class="labelCampo">CPF:</label>
+                            <label for=""><?=$conteudo['cpf']?></label>
+                        </td>
+                    </tr>
+                </table>
             </div>
         </div>
+
         <br>
+
         <div id="conteudo-pontos">
+        <br>
         <h1>Historico de Apontamentos</h1>
+        <hr>
         <div id="pontos">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Data/Hora</th>
-                        <th scope="col">Nome</th>
+                        <th scope="col">Data</th>
+                        <th scope="col">Hora</th>
+                        <th scope="col">Colaborador</th>
                     </tr>
                 </thead>
-            </table>
             <tbody>
+            <?php
+            foreach ($conteudo as $row){
+                echo '<tr>'
+                . '<td>'
+                . $row['idPonto']
+                . '</td>'
+                . '<td>'
+                . $row['diaPonto'] . '/' . $row['mesPonto'] . '/' . $row['anoPonto']
+                . '</td>'
+                . '<td>'
+                . $row['hora']
+                . '</td>'
+                . '<td>'
+                . $row['nomeFuncionario']
+                . '</td>'
+                . '</tr>';
+            }
+            ?>
+            </table>
             </tbody>
         </div>
     </div>
-    <span>Colaborador:__________________________________</span>
-    <span style="float: right;">RH:__________________________________</span>
+    <div id="assinatura">
+        <br><br>
+        <span>Colaborador:__________________________________</span>
+        <span style="float: right;">Empregador:__________________________________</span>
+    </div>
+    <br><br><br><br>
+    <small style="color: grey; justify-content: center; display: flex;">©created by KiwiPoint</small>
+    <br>
+    
 </body>
 </div>
 </html>

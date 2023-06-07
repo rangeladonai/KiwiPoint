@@ -25,11 +25,11 @@ class PontoModel
         return $query;
     }
 
-    function inserePonto($idFuncionario, $dataTimePonto, $mesPonto, $diaPonto, $anoPonto, $urlFoto = NULL)
+    function inserePonto($idFuncionario, $dataTimePonto, $mesPonto, $diaPonto, $anoPonto, $hora, $urlFoto = NULL)
     {
         require '../connection.inc.php';
-        $sql = " INSERT INTO Ponto(idFuncionario, dataPonto, urlFoto, mesPonto, diaPonto, anoPonto)";
-        $sql.= " VALUES('$idFuncionario', '$dataTimePonto', '$urlFoto', '$mesPonto', '$diaPonto', '$anoPonto')";
+        $sql = " INSERT INTO Ponto(idFuncionario, dataPonto, urlFoto, mesPonto, diaPonto, anoPonto, hora)";
+        $sql.= " VALUES('$idFuncionario', '$dataTimePonto', '$urlFoto', '$mesPonto', '$diaPonto', '$anoPonto', '$hora')";
 
         try{
             $insert = $DB->prepare($sql);
@@ -48,7 +48,10 @@ class PontoModel
             return;
         }
         
-        $sql  = "SELECT Ponto.idPonto, Ponto.dataPonto, Ponto.idFuncionario, Ponto.urlFoto, Funcionario.nomeFuncionario, Funcionario.idEmpresa, Funcionario.cpf";
+        $sql  = "SELECT Ponto.idPonto, Ponto.dataPonto,";
+        $sql .= " Ponto.mesPonto, Ponto.diaPonto, Ponto.anoPonto,";
+        $sql .= " Ponto.idFuncionario, Ponto.urlFoto, Funcionario.nomeFuncionario, Funcionario.idEmpresa, Funcionario.cpf,";
+        $sql .= " Ponto.hora";
         $sql .= " FROM Ponto";
         $sql .= " INNER JOIN Funcionario ON (Ponto.idFuncionario = Funcionario.idFuncionario)";
         $sql .= " WHERE Ponto.idFuncionario = '$idFuncionario'";

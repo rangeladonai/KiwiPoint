@@ -36,6 +36,7 @@ CREATE TABLE Ponto(
 	mesPonto int not null,
 	diaPonto int not null,
 	anoPonto int not null,
+	hora time not null,
 
 	FOREIGN KEY (idFuncionario) REFERENCES Funcionario(idFuncionario)
 );

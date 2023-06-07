@@ -18,7 +18,8 @@ class Ponto
         $mes = date('m');
         $dia = date('d');
         $ano = date('Y');
-        
+        $hora = date('H:i:s');
+
         $pontoModel = new PontoModel();
         $validaFuncionario = $pontoModel->validaFuncionario($codFuncionario, $senhaFuncionario);
         if ($validaFuncionario->rowCount()){
@@ -31,7 +32,7 @@ class Ponto
                 $_SESSION['cpf'] = $row['cpf'];
                 $_SESSION['dataHoraUltimoPonto'] = $dataTime;
             }
-            $pontoModel->inserePonto($_SESSION['id'], $dataTime, $mes, $dia, $ano, null);
+            $pontoModel->inserePonto($_SESSION['id'], $dataTime, $mes, $dia, $ano, $hora, null);
             $result = ['msg' => 'sucesso'];
         }
 

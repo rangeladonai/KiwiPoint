@@ -21,13 +21,7 @@ class pdfControl extends PontoModel
 
     function pdf($conteudo)
     {
-        // echo '<pre>';
-        var_dump($conteudo);
-        // echo '<hr>';
-        //var_dump($_REQUEST);
-        // echo '<hr>';
-        // var_dump($_SESSION);
-        // echo '</pre>';
+        include '../pdfPontos.php';
     }
 
 }
