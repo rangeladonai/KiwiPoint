@@ -1,5 +1,8 @@
 <?php
-require '../inc/action.php';
+if (session_status() === PHP_SESSION_NONE){
+    session_start();
+}
+ob_start(); //permite editar o header. Mesmo que ja esteja sendo editado por outro codigo
 date_default_timezone_set('America/Sao_Paulo');
 
 //Verifica Sessão

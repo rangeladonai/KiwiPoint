@@ -1,6 +1,6 @@
 <?php
-//include '../controller/sistemaControl.php';
-
+require '../inc/autoloader.php';
+include '../inc/menubar.php';
 ?>
 
 <!DOCTYPE html>
@@ -61,61 +61,10 @@
         border-radius: 10px;
     }
 </style>
-
 <body>
-    <p>PAINEL PRINCIPAL</p><br>
-
-
-    <div>
-        <div class="bp">
-            <img src="../imagem/foto_logo_login.png" style="height: 20vh;" alt="pontinho">
-            <!-- Informação do usuario -->
-            <div class="info_usu">
-                <img src="../imagem/imagem_icon.png" style="height: 30hv;" name="ft_funcionario" alt="foto_usuario"> <br>
-
-                <input class='input' type="text" name="responsavel" placeholder="Responsável pela aula" value="<?php echo isset($_SESSION['nomeFuncionario']) ? $_SESSION['nomeFuncionario'] : ''; ?>" readonly>
-
-                <div>
-                    <br>
-
-                </div>
-
-                <input type="button" value="Logout" onclick="log()">
-            </div>
-        </div>
-    </div>
-
-    <div>
-
-    </div>
+    <p>PAINEL PRINCIPAL</p>
+    <?php var_dump($_SESSION); ?>
 
 </body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-    function log() {
-        var end = '../view/home.php';
-        window.location.href = end;
-    }
-    var session = document.getElementById('sessionNome');
-    sidebar.addEventListener("mouseenter", () => {
-        sidebar.classList.remove("close");
-    });
-
-    sidebar.addEventListener("mouseleave", () => {
-        sidebar.classList.add("close");
-    });
-</script>
-
+<script src="./painelPrincipal.js"></script>
 </html>
