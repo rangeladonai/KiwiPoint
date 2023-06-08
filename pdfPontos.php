@@ -6,7 +6,6 @@ function validaData($data)
     }
     return $data;
 }
-var_dump($conteudo);
 ?>
 <script>
     alert('Pressione CTRL + P para abrir as opções de impressão');
@@ -105,24 +104,22 @@ var_dump($conteudo);
                     </tr>
                 </thead>
             <tbody>
-            <?php
-            foreach ($conteudo as $row){
-                echo '<tr>'
-                . '<td>'
-                . $row['idPonto']
-                . '</td>'
-                . '<td>'
-                . validaData($row['diaPonto']) . '/' . validaData($row['mesPonto']) . '/' . validaData($row['anoPonto'])
-                . '</td>'
-                . '<td>'
-                . $row['hora']
-                . '</td>'
-                . '<td>'
-                . $row['nomeFuncionario']
-                . '</td>'
-                . '</tr>';
-            }
-            ?>
+            <?php foreach ($conteudo as $row):?>
+            <tr>
+                <td>
+                    <?=$row['idPonto']?>
+                </td>
+                <td>
+                    <?=validaData($row['diaPonto']) . '/' . validaData($row['mesPonto']) . '/' . validaData($row['anoPonto'])?>
+                </td>
+                <td>
+                    <?=$row['hora']?>
+                </td>
+                <td>
+                    <?=$row['nomeFuncionario']?>
+                </td>
+            </tr>
+            <?php endforeach; ?>
             </table>
             </tbody>
         </div>
