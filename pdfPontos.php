@@ -1,3 +1,13 @@
+<?php
+function validaData($data)
+{
+    if ($data < 10){
+        $data = '0' . $data;
+    }
+    return $data;
+}
+var_dump($conteudo);
+?>
 <script>
     alert('Pressione CTRL + P para abrir as opções de impressão');
 </script>
@@ -69,9 +79,9 @@
                     <tr>
                         <td>
                             <label for="" class="labelCampo">Colaborador:</label>
-                            <label for=""><?=$conteudo['nomeFuncionario']?></label>
+                            <label for=""><?=$_SESSION['nomeFuncionario']?></label>
                             <label for="" class="labelCampo">CPF:</label>
-                            <label for=""><?=$conteudo['cpf']?></label>
+                            <label for=""><?=$_SESSION['cpf']?></label>
                         </td>
                     </tr>
                 </table>
@@ -102,7 +112,7 @@
                 . $row['idPonto']
                 . '</td>'
                 . '<td>'
-                . $row['diaPonto'] . '/' . $row['mesPonto'] . '/' . $row['anoPonto']
+                . validaData($row['diaPonto']) . '/' . validaData($row['mesPonto']) . '/' . validaData($row['anoPonto'])
                 . '</td>'
                 . '<td>'
                 . $row['hora']
