@@ -1,8 +1,10 @@
 <?php
-//include '../controller/sistemaControl.php';
+include '../inc/menubar.php';
 include '../connection.inc.php';
+if (!isset($_SESSION)){
+    session_start();
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +18,7 @@ include '../connection.inc.php';
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!--CSS. Cole aqui embaixo o CSS proprio da pagina-->
-    
+    <link rel="stylesheet" href="../css/consultaPonto.css">
 </head>
 
 <body>
@@ -24,8 +26,8 @@ include '../connection.inc.php';
         <div class="">
             <form action="../controller/pontoControl.php?action=consultaPontoMes" id="consultaPonto" name="consultaPonto" method="POST">
                 <thead>
-                    <div id="cabecalho">    
-                        <label for="mes">Mês</label>
+                    <div id="cabecalho">
+                        <label for="mes">Mês:</label>
                         <select name="mes" id="mes">
                             <option value="">Todos</option>
                             <option value="1" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '1') echo 'selected'; ?> >Janeiro</option>
@@ -41,8 +43,24 @@ include '../connection.inc.php';
                             <option value="11" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '11') echo 'selected'; ?> >Novembro</option>
                             <option value="12" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '12') echo 'selected'; ?> >Dezembro</option>
                         </select>
-                        <input type="button" onclick="alteraMes()" value="Pesquisar">
-                        <img src="../imagem/pdf.png" title="Baixar PDF do Mês" onclick="pdf()" style="float: right; cursor:pointer; max-width: 32px;">
+                        <?php
+                        if ($_SESSION['situacao'] == 'logouComoEmpresa'): ?>
+                            <select name="funcionario" id="funcionario">
+                                <option value="" name="funcionario">Todos Funcionarios</option>
+                                <?php
+                                    require '../model/funcionarioModel.php';
+                                    $funcionarioModel = new FuncionarioModel();
+                                    $funcionarios = $funcionarioModel->pesquisaFuncionariosDaEmpresa($_SESSION['idEmpresa']);
+                                    if ($funcionarios->rowCount()){
+                                        while ($row = $funcionarios){
+                                            echo "<option value=" . $row['idFuncionario'] . ">" . $row['nomeFuncionario'] . " - " . $row['cpf'] . "</option>";
+                                        }
+                                    }
+                                ?>
+                            </select>
+                        <?php endif; ?>
+                        <input type="button" onclick="alteraConsulta()" value="Pesquisar">
+                        <img src="../imagem/pdf.png" title="Montar PDF" onclick="pdf()" style="float: right; cursor:pointer; max-width: 32px;">
                     </div>
                 </thead>
 
@@ -55,7 +73,6 @@ include '../connection.inc.php';
                     
                     <tbody id="content">
                     <?php
-                        $_SESSION['id'] = 1; //APENAS PARA TESTE, DELETAR ESSA LINHA
                         require '../model/pontoModel.php';
                         $pontoModel = new PontoModel();
                         $pesquisaPontos = $pontoModel->pesquisaPontos($_SESSION['action'], $_SESSION['id'], $_SESSION['mes']);
@@ -79,6 +96,6 @@ include '../connection.inc.php';
         </div>
     </div>
 
-    <script src="../view/consultaPonto.js"></script>
+    <script src="../view/main.js"></script>
 </body>
 </html>

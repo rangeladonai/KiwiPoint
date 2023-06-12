@@ -1,6 +1,13 @@
+#logo{
+    align-items: center;
+    margin: 0 auto;
+    display: block;
+    justify-content: center;
+    width: 230px;
+}
+
 body {
     background: linear-gradient(116.82deg, #64e44a 0%, rgba(191, 228, 118) 59.27%, #59975c 97.92%);
-    background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     display: grid;
@@ -193,21 +200,15 @@ body {
     margin-left: 3px;
 }
 #relogio{
-  position: absolute;
-  right: 15vh;
-/*  border: 1px solid #f7f7f7;*/
-  padding: 4px 12px;
-  top: 2vh;
-  
-  color: #000000;
+  color: #198019;
   font-size: 2em;
   font-family: 'Alarm Clock';
-  
-  /*border-radius: 4px;*/
+  text-align: center;
+  justify-content: center;
 }
 @font-face {
     font-family: 'Alarm Clock';
-    src: url('../css/fonto_clock/alarm clock.ttf') format('truetype');
+    src: url('../css/font/DS-DIGIB.TTF') format('truetype');
     font-weight: normal;
     font-style: normal;
   }

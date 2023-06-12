@@ -9,9 +9,7 @@ if (!empty($_GET['action'])){
 
 //verifica se action NÃO está vazia, e verifica se o metodo dito em action, existe na classe instanciada
 if (!empty($action)){
-    if (method_exists($classe, $action)){   //ao incluir este arquivo em um arquivo com classe, instaciar a classe com variavel $classe
-        call_user_func(array($classe, $action));
-    } else {
-        require '../view/404.php';
+    if (function_exists($action)){
+        call_user_func($action);
     }
 }

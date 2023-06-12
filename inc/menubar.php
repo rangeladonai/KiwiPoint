@@ -1,4 +1,8 @@
-
+<?php
+if (!isset($_SESSION)){
+    session_start();
+}
+?>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
 <style>
     .menu {
@@ -6,7 +10,6 @@
         align-items: center;
         background-color: whitesmoke;
         padding: 10px;
-        border-radius: 5px;
     }
 
     .logo {
@@ -18,32 +21,36 @@
         position: relative;
         left: 20%;
     }
-    
-    body {
-        background: linear-gradient(116.82deg, #64e44a 0%, rgba(191, 228, 118) 59.27%, #59975c 97.92%);
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-        /*display: grid;*/
-        align-items: center;
-        justify-content: center;
-        position: inherit;
-    }
 
+    button{
+        margin-left: 20px;
+    }
+    .botoes{
+        margin-left: 60px;
+    }
 </style>
+
 <html>
 <div class="menu">
     <div class="logo">
         <img src="../imagem/logo-pdf.png" alt="" id="logo">
     </div>
     <div class="botoes">
-        <a href="#" class="nav-item">Pedro1</a>
-        <a href="#" class="nav-item">Pedro2</a>
         <?php if ($_SESSION['situacao'] == 'logouComoEmpresa'): ?>
-        <a href="#" class="nav-item">EMPRESA</a>
+        <button class="button is-link is-light">Empresa</button>
+        <button class="button is-link is-light">Funcionarios</button>
         <?php endif; ?>
-
-        <a href="#" class="nav-item">Pedro4</a>
+        <button class="button is-link is-light">Registrar Ponto</button>
+        <button class="button is-link is-light">Consulta Pontos</button>
+        <button class="button is-warning is-light" style="float: right;" onclick="logoutBTN()">Logout</button>
     </div>
+    <span style="margin-left: 50%">User: <?=$_SESSION['user']?></span>
 </div>
 </html>
+
+<script>
+    function logoutBTN(){
+        let end = '../view/home.php';
+        window.location.href = end;
+    }
+</script>

@@ -20,17 +20,6 @@ function mostraPinPonto(){
     $('#pin').show();
 }
 
-function empresa(){
-    if (!validaCampoPreenchido(document.getElementById('emailEmpresaLogin').value) && !validaCampoPreenchido(document.getElementById('senhaEmpresaLogin').value)){
-        alert('há campos que precisam ser preenchidos');
-        return;
-    }
-    var action = '../controller/empresaControl.php?action=loginEmpresa';
-    var form = document.querySelector('#homeForm');
-    form.action = action;
-    form.submit();
-}
-
 function validaCampoPreenchido(input){
     let vazio = [undefined, '', null, false];
 
@@ -62,6 +51,7 @@ cadEmpresa.onclick = function () {
 };
 
 function pin(){
+    var form = document.getElementById('homeForm');
     var cod = document.getElementById('codFuncionario2').value;
     var senha = document.getElementById('senhaFuncionario2').value;
 
@@ -71,28 +61,23 @@ function pin(){
     }
     
     const url = '../controller/pontoControl.php?action=registraPonto';
-    formData = new FormData();
-    formData.append('codFuncionario', cod);
-    formData.append('senhaFuncionario', senha);
-
-    fetch(url, {
-        method: 'POST',
-        body: formData
-    }).then((response) => response.json())
-    .then((data) => {
-        console.log(data);
-        if (data.msg == 'erro'){
-            alert('ERRO! Senha ou código incorreto, Ponto não registrado.');
-            return;
-        }
-        alert('Sucesso! PONTO REGISTRADO!');
-    }).catch((error) => {
-        console.log(error);
-    })
+    form.action = url;
+    form.submit();
 }
 
 function funcionario(){
     var action = '../controller/funcionarioControl.php?action=LoginFuncionario';
+    var form = document.querySelector('#homeForm');
+    form.action = action;
+    form.submit();
+}
+
+function empresa(){
+    if (!validaCampoPreenchido(document.getElementById('emailEmpresaLogin').value) && !validaCampoPreenchido(document.getElementById('senhaEmpresaLogin').value)){
+        alert('há campos que precisam ser preenchidos');
+        return;
+    }
+    var action = '../controller/empresaControl.php?action=loginEmpresa';
     var form = document.querySelector('#homeForm');
     form.action = action;
     form.submit();

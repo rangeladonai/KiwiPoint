@@ -40,4 +40,14 @@ class FuncionarioModel
         return $query;
     }
 
+    function pesquisaFuncionariosDaEmpresa($idEmpresa)
+    {
+        require '../connection.inc.php';
+        $sql  = " SELECT * FROM funcionario";
+        $sql .= " WHERE idEmpresa = '$idEmpresa'";
+
+        $query = $DB->prepare($sql);
+        $query->execute();
+        return $query;
+    }
 }    

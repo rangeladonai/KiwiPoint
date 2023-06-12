@@ -1,7 +1,19 @@
 <?php
+if (isset($_SESSION)){
+    session_destroy();
+} else {
+    session_start();
+}
 require '../controller/sistemaControl.php';
-session_destroy();
-session_start();
+if (isset($_GET['msg'])){
+    if ($_GET['msg'] == '1'){
+        echo "<script>alert('PONTO REGISTRADO')</script>";
+    } else if ($_GET['msg'] == '0'){
+        echo "<script>alert('ERRO!! dados incorretos. O ponto não foi registrado!')</script>";
+    }else if ($_GET['msg'] == '303'){
+        echo "<script>alert('ERRO!! Empresa não encontrada!')</script>";
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +39,8 @@ session_start();
         </div>
 
         <form action="" id="homeForm" name="homeForm" method="post">
-            <img src="../imagem/foto_logo_login.png" style="height: 250px;" alt="">
-            <br>
+            <img src="../imagem/logo-pdf.png" alt="" id="logo">
+            <hr>
             <div id="buttons">
                 <input type="button" class="mostrarLoginEmpresa" onclick="mostraLoginEmpresa()" value="Empresa">
                 <input type="button" class="mostrarLoginFuncionario" onclick="mostraLoginFuncionario()" value="Funcionario">
@@ -50,7 +62,7 @@ session_start();
             </div>
 
             <div id="funcionario" name="funcionario">
-                <input type="text" id="codFuncionario" class="codFuncionario" name="codFuncionario" placeholder="Código..." required>
+                <input type="text" id="codFuncionario" class="codFuncionario" name="codFuncionario" placeholder="Codigo..." required>
                 <br>
                 <input type="password" id="senhaFuncionario" class="senhaFuncionario" name="senhaFuncionario" placeholder="Senha..." required>
                 <br>

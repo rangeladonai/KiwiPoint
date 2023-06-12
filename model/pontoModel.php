@@ -1,8 +1,6 @@
 <?php
-
 class PontoModel
 {
-
     function validaFuncionario($codigo, $senha)
     {
         require '../connection.inc.php';

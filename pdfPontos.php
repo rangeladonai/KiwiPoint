@@ -1,4 +1,7 @@
 <?php
+if (!isset($_SESSION)){
+    session_start();
+}
 function validaData($data)
 {
     if ($data < 10){
@@ -6,6 +9,7 @@ function validaData($data)
     }
     return $data;
 }
+
 ?>
 <script>
     alert('Pressione CTRL + P para abrir as opções de impressão');
