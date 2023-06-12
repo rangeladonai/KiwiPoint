@@ -46,8 +46,10 @@
   #sidebar-wrapper{
     position: fixed;
     right: 200;
-    top: 79px;
-    width: 25vh;
+    top: 75px;
+    width: 24vh;
     left: 0;
     bottom: 0;
+    z-index: -1;
+    background: #f3f3f3;
   }

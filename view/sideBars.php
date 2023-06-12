@@ -12,7 +12,7 @@
 <body>
     <div class="sidebar">
         <ul class="caixa-sidebar">
-            <img src="../imagem/foto_logo_login.png" style="height:124px;position: relative;left: 6vh;bottom: 40px;"
+            <img src="../imagem/foto_logo_login.png" style="height:124px;position: relative;left: 1vh;bottom: 40px;"
                 alt="" onclick="teste()">
             <!--     <li>
                 <a href="#">
@@ -34,7 +34,7 @@
 
     <div class="d-flex" id="wrapper">
 
-        <div class="bg-white" id="sidebar-wrapper">
+        <div  id="sidebar-wrapper">
             <div class="list-group list-group-flush my-3">
 
                 <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i
