@@ -27,7 +27,7 @@ if (!isset($_SESSION)){
             <form action="../controller/pontoControl.php?action=consultaPontoMes" id="consultaPonto" name="consultaPonto" method="POST">
                 <thead>
                     <div id="cabecalho">
-                        <label for="mes">Mês:</label>
+                        <label for="mes" id='mes_anos'>Mês:</label>
                         <select name="mes" id="mes">
                             <option value="">Todos</option>
                             <option value="1" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '1') echo 'selected'; ?> >Janeiro</option>
@@ -96,6 +96,9 @@ if (!isset($_SESSION)){
         </div>
     </div>
 
-    <script src="../view/main.js"></script>
+    <script src="../view/main.js">
+     
+
+    </script>
 </body>
 </html>
