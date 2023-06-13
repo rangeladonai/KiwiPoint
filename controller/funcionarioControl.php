@@ -51,3 +51,19 @@ function LoginFuncionario()
         include '../view/home.php?msg=401';
     }
 }
+
+function deletaFuncionario()
+{
+    !empty($_REQUEST['idFuncionario']) ? $_SESSION['idFuncionario'] = $_REQUEST['idFuncionario'] : null;
+
+    include_once '../model/funcionarioModel.php';
+    $model = new FuncionarioModel();
+    $umFuncionario = $model->procuraFuncionarioPorId($_SESSION['idFuncionario']);
+
+    if ($umFuncionario->rowCount()){
+        $excl = $model->deletarFuncionario($_SESSION['idFuncionario']);
+        include '../view/consultaFuncionarios.php?msg=991';
+    } else {
+        return 'idFuncionario não encontrado no banco';
+    }
+}

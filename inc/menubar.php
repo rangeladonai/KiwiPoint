@@ -38,7 +38,7 @@ if (!isset($_SESSION)){
     <div class="botoes">
         <?php if ($_SESSION['situacao'] == 'logouComoEmpresa'): ?>
         <button class="button is-link is-light">Empresa</button>
-        <button class="button is-link is-light">Funcionarios</button>
+        <button class="button is-link is-light" onclick="funcionarios()">Funcionarios</button>
         <?php endif; ?>
         <button class="button is-link is-light">Registrar Ponto</button>
         <button class="button is-link is-light">Consulta Pontos</button>
@@ -53,4 +53,11 @@ if (!isset($_SESSION)){
         let end = '../view/home.php';
         window.location.href = end;
     }
+
+    function funcionarios(){
+        let end = '../view/consultaFuncionarios.php';
+        window.location.href = end;
+    }
+
+
 </script>

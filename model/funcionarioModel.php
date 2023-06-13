@@ -3,7 +3,7 @@ class FuncionarioModel
 {  
     function insereFuncionario($idFuncionario, $nomeFuncionario, $cpf, $idEmpresa, $codigo, $email, $senha)
     {
-        require '../connection.php';
+        require_once '../connection.php';
         if (empty(func_get_args())){
             return;
         }
@@ -25,13 +25,13 @@ class FuncionarioModel
         if (empty($action)){
             return 'faltou informar o action';
         }
-        require '../connection.inc.php';
+        require_once '../connection.inc.php';
     
-        $sql = "SELECT funcionario.idFuncionario, funcionario.nomeFuncionario, funcionario.cpf, funcionario.idEmpresa, funcionario.codigo, funcionario.email, funcionario.senha, empresa.nomeEmpresa, empresa.cnpj, empresa.cep, empresa.numero";
-        $sql .= " FROM funcionario";
-        $sql .= " INNER JOIN empresa ON (funcionario.idEmpresa = empresa.idEmpresa)";
-        $sql .= " WHERE funcionario.codigo = '$codigo'";
-        $sql .= " AND funcionario.senha = '$senha'";
+        $sql = "SELECT Funcionario.idFuncionario, Funcionario.nomeFuncionario, Funcionario.cpf, Funcionario.idEmpresa, Funcionario.codigo, Funcionario.email, Funcionario.senha, Empresa.nomeEmpresa, Empresa.cnpj, Empresa.cep, Empresa.numero";
+        $sql .= " FROM Funcionario";
+        $sql .= " INNER JOIN Empresa ON (Funcionario.idEmpresa = Empresa.idEmpresa)";
+        $sql .= " WHERE Funcionario.codigo = '$codigo'";
+        $sql .= " AND Funcionario.senha = '$senha'";
         $sql .= " LIMIT 1";
     
         $query = $DB->prepare($sql);
@@ -42,9 +42,42 @@ class FuncionarioModel
 
     function pesquisaFuncionariosDaEmpresa($idEmpresa)
     {
-        require '../connection.inc.php';
-        $sql  = " SELECT * FROM funcionario";
+        require_once '../connection.inc.php';
+        $sql  = " SELECT * FROM Funcionario";
         $sql .= " WHERE idEmpresa = '$idEmpresa'";
+
+        $query = $DB->prepare($sql);
+        $query->execute();
+        return $query;
+    }
+
+    function procuraFuncionarioPorId($idFuncionario)
+    {
+        if (empty($idFuncionario)){
+            return 'ID FUNCIONARIO ESTÁ VAZIO! PRECISA SER PREENCHIDO PARA QUE POSSA SER REALIZADA A CONSULTA';
+        }
+        require_once '../connection.inc.php';
+        $sql = "SELECT * FROM Funcionario";
+        $sql .= " WHERE idFuncionario = '$idFuncionario'";
+
+        $query = $DB->prepare($sql);
+        $query->execute();
+        return $query;
+    }
+
+    function deletarFuncionario($idFuncionario)
+    {
+        if (empty($idFuncionario)){
+            return 'ID FUNCIONARIO ESTÁ VAZIO! PRECISA SER PREENCHIDO PARA QUE POSSA SER DELETADO';
+        }
+        require '../connection.inc.php';
+
+        $deletePontos = "DELETE FROM Ponto WHERE idFuncionario = '$idFuncionario'";
+        $query = $DB->prepare($deletePontos);
+        $query->execute();
+
+        $sql = "DELETE FROM Funcionario";
+        $sql .= " WHERE idFuncionario = '$idFuncionario'";
 
         $query = $DB->prepare($sql);
         $query->execute();

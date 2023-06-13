@@ -1,9 +1,7 @@
 <?php
 require '../inc/action.php';
 date_default_timezone_set('America/Sao_Paulo');
-if (!isset($_SESSION)){
-    session_start();
-}
+include_once '../controller/sistemaControl.php';
 //////
 function registraPonto()
 {
@@ -29,7 +27,6 @@ function registraPonto()
         $_SESSION['cpf'] = $row['cpf'];
         $_SESSION['dataHoraUltimoPonto'] = $dataTime;
         $pontoModel->inserePonto($_SESSION['id'], $dataTime, $mes, $dia, $ano, $hora, null);
-        session_destroy(); 
         header('Location:../view/home.php?msg=1');
     } else {
         header('Location:../view/home.php?msg=0');

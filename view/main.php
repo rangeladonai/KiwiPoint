@@ -1,6 +1,6 @@
 <?php
-include '../inc/menubar.php';
-include '../connection.inc.php';
+include_once '../inc/menubar.php';
+include_once '../connection.inc.php';
 if (!isset($_SESSION)){
     session_start();
 }
