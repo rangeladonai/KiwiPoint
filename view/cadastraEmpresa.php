@@ -22,7 +22,6 @@
             name="cadastraEmpresa" method="post">
             <fieldset class='scheduler-border teste'>
                 <p>Informações do Login</p>
-                <hr>
                 <label id="label_cnpj" for="">CNPJ</label>
                 <br>
                 <input type="text" name="cnpjEmpresa" id="cnpjEmpresa" style="width: 167px;" placeholder="CNPJ" required>
@@ -42,7 +41,6 @@
 
             <fieldset class='scheduler-border'>
                 <p>Informações Adicionais</p>
-                <hr>
                 <label id="label_empresa" for="">Empresa</label>
                 <label id="label_telefone" for="">Telefone</label>
                 <br>
@@ -50,7 +48,7 @@
                 <input type="text" name="nomeEmpresa" id="nomeEmpresa" placeholder="Empresa" required>
                 <input type="text" name="telefoneEmpresa" class="telefoneEmpresa"id="telefoneEmpresa" placeholder="Telefone" required>
                 <br>                                            
-                <input type="text" name="cepEmpresa" style="width: 104px;"id="cepEmpresa" placeholder="CEP" required>
+                <input type="text" name="cepEmpresa" style="width: 104px;" id="cepEmpresa" placeholder="CEP" required>
                 <input type="text" name="ufEmpresa" id="ufEmpresa" placeholder="Uf" required>                
                 <input type="text" name="cidadeEmpresa" id="cidadeEmpresa" placeholder="Cidade" required readonly>
                 

@@ -24,6 +24,7 @@ CREATE TABLE Funcionario(
 	codigo varchar(50) not null,
 	email varchar(255),
 	senha varchar(255),
+	statu int not null,
 	
 	FOREIGN KEY(idEmpresa) REFERENCES Empresa(idEmpresa)
 );
@@ -42,4 +43,4 @@ CREATE TABLE Ponto(
 );
 
 INSERT INTO `Letrim`.`Empresa` (`nomeEmpresa`, `cnpj`, `cep`, `complemento`, `rua`, `uf`, `numero`, `bairro`, `cidade`, `email`, `senha`) VALUES ('Senai-Sul', '03774819000102', '12345666', 'InstituiçãoSenai', 'Av. Cel Procopio Gomes', 'SC', '911', 'Bucarein', 'Joinville', 'senai@gmail.com', 'senai');
-INSERT INTO `Letrim`.`Funcionario` (`nomeFuncionario`, `cpf`, `idEmpresa`, `codigo`, `email`, `senha`) VALUES ('Rangel Adonai', '12345678900', '1', '123', 'rangel@gmail.com', '123');
+INSERT INTO `Letrim`.`Funcionario` (`nomeFuncionario`, `cpf`, `idEmpresa`, `codigo`, `email`, `senha`, `statu`) VALUES ('Rangel Adonai', '12345678900', '1', '123', 'rangel@gmail.com', '123', 1);

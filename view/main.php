@@ -1,9 +1,9 @@
 <?php
-include_once '../inc/menubar.php';
-include_once '../connection.inc.php';
 if (!isset($_SESSION)){
     session_start();
 }
+include_once '../inc/menubar.php';
+include_once '../connection.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +27,7 @@ if (!isset($_SESSION)){
             <form action="../controller/pontoControl.php?action=consultaPontoMes" id="consultaPonto" name="consultaPonto" method="POST">
                 <thead>
                     <div id="cabecalho">
+                        <input type="hidden" value="<?=$_SESSION['id']?>">
                         <label for="mes">Mês:</label>
                         <select name="mes" id="mes">
                             <option value="">Todos</option>
@@ -44,7 +45,7 @@ if (!isset($_SESSION)){
                             <option value="12" <?php if(!empty($_SESSION['mes']) && $_SESSION['mes'] == '12') echo 'selected'; ?> >Dezembro</option>
                         </select>
                         <?php
-                        if ($_SESSION['situacao'] == 'logouComoEmpresa'): ?>
+                        if ($_SESSION['situacao'] == 'logouComoEmpresa'){ ?>
                             <select name="funcionario" id="funcionario">
                                 <option value="" name="funcionario">Todos Funcionarios</option>
                                 <?php
@@ -58,7 +59,7 @@ if (!isset($_SESSION)){
                                     }
                                 ?>
                             </select>
-                        <?php endif; ?>
+                        <?php } ?>
                         <input type="button" onclick="alteraConsulta()" value="Pesquisar">
                         <img src="../imagem/pdf.png" title="Montar PDF" onclick="pdf()" style="float: right; cursor:pointer; max-width: 32px;">
                     </div>
@@ -73,6 +74,7 @@ if (!isset($_SESSION)){
                     
                     <tbody id="content">
                     <?php
+                    //var_dump($_SESSION);
                         require '../model/pontoModel.php';
                         $pontoModel = new PontoModel();
                         $pesquisaPontos = $pontoModel->pesquisaPontos($_SESSION['action'], $_SESSION['id'], $_SESSION['mes']);

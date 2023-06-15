@@ -111,7 +111,7 @@ body {
 .mostrarLoginFuncionario {
     position: relative;
     border-radius: 3px;
-    text-align: center;
+    /* text-align: center; */
     width: 106px;
     border: none;
     background: #0f7a0f;
@@ -130,12 +130,12 @@ body {
 }
 
 .emailEmpresa{
-    text-align: center;
+    /* text-align: center; */
     width: 23vh;
 }
 
 .senhaEmpresa{
-    text-align: center;
+    /* text-align: center; */
     width: 23vh;
 }
 
@@ -145,7 +145,7 @@ body {
     display: block;
     margin: 0 auto;
     border-radius: 5px;
-    text-align: center;
+    /* text-align: center; */
     width: 23vh;
 }
 
@@ -155,7 +155,7 @@ body {
     display: block;
     margin: 0 auto;
     border-radius: 5px;
-    text-align: center;
+    /* text-align: center; */
     width: 23vh;
 
 }
@@ -169,7 +169,7 @@ body {
 .mostrarPinPonto{
     position: relative;
     border-radius: 3px;
-    text-align: center;
+    /* text-align: center; */
     border: none;
     width: 106px;
     background: #0f7a0f;

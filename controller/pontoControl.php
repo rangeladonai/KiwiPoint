@@ -1,7 +1,10 @@
 <?php
-require '../inc/action.php';
+if (!isset($_SESSION)){
+    session_start();
+}
 date_default_timezone_set('America/Sao_Paulo');
-include_once '../controller/sistemaControl.php';
+require '../inc/action.php';
+//include_once '../controller/sistemaControl.php';
 //////
 function registraPonto()
 {
@@ -33,6 +36,24 @@ function registraPonto()
     }
 }
 
+function registraPontoLogado()
+{
+    require '../connection.inc.php';
+    $idFuncionario = $_SESSION['id'];
+    $dataTime = date('Y-m-d H:i:s');
+    $mesPonto = date('m');
+    $diaPonto = date('d');
+    $anoPonto = date('Y');
+    $urlFoto = "foto";
+    $hora = date('H:i:s');
+    $sql = " INSERT INTO Ponto(idFuncionario, dataPonto, urlFoto, mesPonto, diaPonto, anoPonto, hora)";
+    $sql.= " VALUES('$idFuncionario', '$dataTime', '$urlFoto', '$mesPonto', '$diaPonto', '$anoPonto', '$hora')";
+    $insert = $DB->prepare($sql);
+    $insert->execute();
+    $url = '../view/main.php';
+    include $url;
+}
+
 function consultaPontoMes()
 {
     $_SESSION['action'] = 'consultaPontoMes';
@@ -41,11 +62,6 @@ function consultaPontoMes()
         $_SESSION['mes'] = $_REQUEST['mes'];
     } else {
         unset($_SESSION['mes']);
-    }
-    if (!empty($_REQUEST['idFuncionario'])){
-        $_SESSION['id'] = $_REQUEST['idFuncionario'];
-    } else {
-        unset($_SESSION['id']);
     }
 
     include '../view/main.php';

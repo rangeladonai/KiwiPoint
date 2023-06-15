@@ -1,19 +1,19 @@
 <?php
+if (!isset($_SESSION)){
+    session_start();
+}
 $action = $_REQUEST['action'];
 if (!empty($action)){
     if (function_exists($action)){
         call_user_func($action);
     }
 }
-if (!isset($_SESSION)){
-    session_start();
-}
 /////
 ///////////////////////////////////
 function cadastraEmpresa()
 {
     $_SESSION['action'] = 'cadastraEmpresa';
-    include '../view/cadastraEmpresa.php';
+    header('Location:../view/cadastraEmpresa.php');
 }
 
 function confirmaCadastraEmpresa()
@@ -24,10 +24,10 @@ function confirmaCadastraEmpresa()
     $insere = $model->insereEmpresa($_POST['nomeEmpresa'],$_POST['cnpjEmpresa'],$_POST['cepEmpresa'],$_POST['complementoEmpresa'],$_POST['ruaEmpresa'],$_POST['ufEmpresa'],$_POST['numeroEmpresa'],$_POST['bairroEmpresa'],$_POST['cidadeEmpresa'],$_POST['emailEmpresa'],$_POST['senhaEmpresa']);
     if ($insere){
         $_SESSION['situacao'] = 'cadastradaEmpresa';
-        include('../view/home.php?msg=200');
+        header('Location:../view/home.php?msg=200') ;
     } else {
         $_SESSION['situacao'] = 'erroCadastroEmpresa';
-        include('../view/home.php?msg=400');
+        header('Location:../view/home.php?msg=400');
     }
 }
 
@@ -43,7 +43,6 @@ function loginEmpresa()
         $_SESSION['nomeEmpresa'] = $row['nomeEmpresa'];
         $_SESSION['cnpj'] = $row['cnpj'];
         $_SESSION['cep'] = $row['cep'];
-        $_SESSION['cep'] = $row['cep'];
         $_SESSION['complemento'] = $row['complemento'];
         $_SESSION['rua'] = $row['rua'];
         $_SESSION['uf'] = $row['uf'];
@@ -56,6 +55,6 @@ function loginEmpresa()
         require_once '../controller/pontoControl.php';
         consultaPontoMes();
     } else {
-        include('../view/home.php?msg=303');
+        header('Location:../view/home.php?msg=303');
     }
 }

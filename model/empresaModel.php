@@ -41,4 +41,18 @@ class EmpresaModel
         return $query;
     }
     
+    function dadosEmpresa($idEmpresa)
+    {
+        require '../connection.inc.php';
+        if (empty(func_get_args())){
+            return;
+        }
+
+        $sql = "SELECT * FROM Empresa";
+        $sql .= " WHERE idEmpresa = '$idEmpresa'";
+
+        $stmt = $DB->prepare($sql);
+        $query = $stmt->execute();
+        return $query;
+    }
 }

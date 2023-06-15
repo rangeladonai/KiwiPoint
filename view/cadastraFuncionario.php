@@ -1,9 +1,9 @@
 <?php
-include_once '../inc/menubar.php';
-include_once '../connection.inc.php';
 if (!isset($_SESSION)){
     session_start();
 }
+include_once '../inc/menubar.php';
+include_once '../connection.inc.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,19 +23,20 @@ if (!isset($_SESSION)){
 
 <body>
     <div class="container">
-        <form action="" id="cadastraFuncionario">
-            <input type="text" placeholder="Nome Completo" required>
-            <input type="text" placeholder="CPF" required>
-            <input type="email" placeholder="Email" required>
+        <form action="<?php if(!empty($_SESSION['operacao'])){ echo '../controller/funcionarioControl.php?action=confirmaEditaFuncionario'; } else {echo '../controller/funcionarioControl.php?action=cadastraFuncionario';} ?>" id="cadastraFuncionario" method="POST">
+            <input type="hidden" name="idFuncionario" value="<?php if (!empty($_SESSION['idFuncEdit'])) echo $_SESSION['idFuncEdit']?>">
+            <input type="text" placeholder="Nome Completo" name="nomeFuncionario" value="<?php echo !empty($_SESSION['nomeFuncEdit']) ? $_SESSION['nomeFuncEdit'] : '' ?>" required>
+            <input type="text" placeholder="CPF" name="cpfFuncionario" value="<?php echo !empty($_SESSION['cpfFuncEdit']) ? $_SESSION['cpfFuncEdit'] : '' ?>" required>
+            <input type="email" placeholder="Email" name="emailFuncionario" value="<?php echo !empty($_SESSION['emailFuncEdit']) ? $_SESSION['emailFuncEdit'] : '' ?>" required>
             <br><br>
-            <input type="text" placeholder="Codigo" required>
-            <input type="password" placeholder="Senha" required>
-            <input type="password" placeholder="Repetir Senha" required>
+            <input type="text" placeholder="Codigo" name="codigoFuncionario" value="<?php echo !empty($_SESSION['codFuncEdit']) ? $_SESSION['codFuncEdit'] : '' ?>" required>
+            <input type="password" placeholder="Senha" name="senhaFuncionario" value="<?php echo !empty($_SESSION['senFuncEdit']) ? $_SESSION['senFuncEdit'] : '' ?>"required>
+            <input type="password" placeholder="Repetir Senha" name="senhaFuncionarioConfirma" required>
             <br><br>
-            <input type="button" class="btn-success" value="Salvar">
+            <input type="submit" class="btn-success" value="Salvar">
         </form>
     </div>
 
-    <script src="./cadastraFuncionario.js"></script>
+    <script src="../view/cadastraFuncionario.js"></script>
 </body>
 </html>

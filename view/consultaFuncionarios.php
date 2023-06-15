@@ -1,9 +1,9 @@
 <?php
-include_once '../inc/menubar.php';
-include_once '../inc/msg.php';
 if (!isset($_SESSION)){
     session_start();
 }
+include_once '../inc/menubar.php';
+include_once '../inc/msg.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -20,9 +20,17 @@ if (!isset($_SESSION)){
     <!--CSS. Cole aqui embaixo o CSS proprio da pagina-->
     <link rel="stylesheet" href="../css/consultaPonto.css">
 </head>
-
+<style>
+    img:hover{
+        cursor: pointer;
+    }
+    #adicionar{
+        color: white;
+    }
+</style>
 <body>
     <div class="container">
+        <button class="btn btn-success" style="float: right;"><a href="../controller/funcionarioControl.php?action=cadastraFuncionarioPage" id="adicionar">Cadastrar</a></button>
         <table class="table">
             <tr>
                 <th>#</th>
@@ -35,26 +43,34 @@ if (!isset($_SESSION)){
                 <th>Excl</th>
             </tr>
         <?php
-        $_SESSION['idEmpresa'] = 1;
         include_once '../model/funcionarioModel.php';
         $model = new FuncionarioModel();
         $funcionarios = $model->pesquisaFuncionariosDaEmpresa($_SESSION['idEmpresa']);
         if($funcionarios->rowCount()){
             while ($row = $funcionarios->fetch(PDO::FETCH_ASSOC)){ ?>
+            <tr>
             <td><?=$row['idFuncionario']?></td>
             <td><?=$row['nomeFuncionario']?></td>
             <td><?=$row['cpf']?></td>
             <td><?=$row['codigo']?></td>
             <td><?=$row['email']?></td>
             <td>*********</td>
-            <td><img src="../imagem/edit.png" alt="" style="width: 24px;" title="Editar" onclick="editar(<?php echo $row['idFuncionario']; ?>)"></td>
-            <td><img src="../imagem/excl.png" alt="" style="width: 24px;" title="Deletar" onclick="deletar(<?php echo $row['idFuncionario']; ?>)"></td>
+            <?php 
+            if ($row['statu'] == 1){
+                echo "<td><img src='../imagem/edit.png' style=width: 21px;' title='Inativar' onclick='editar(" . $row['idFuncionario']  . ")'></td>";
+                echo "<td><img src='../imagem/excl.png' style=width: 21px;' title='Inativar' onclick='deletar(" . $row['idFuncionario']  . ")'></td>";
+            } else {
+                echo '<td><span style="color:red">Inativado</span></td>';
+                echo "<td><input type='button' onclick='reativar(" . $row['idFuncionario']  . ")' value='Re-ativar'></td>";
+            }
+            ?>
+            </tr>
     <?php  }
         }
         ?>
         </table>
     </div>
 
-    <script src="./consultaFuncionarios.js"></script>
+    <script src="../view/consultaFuncionarios.js"></script>
 </body>
 </html>

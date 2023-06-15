@@ -6,9 +6,6 @@ ob_start(); //permite editar o header. Mesmo que ja esteja sendo editado por out
 date_default_timezone_set('America/Sao_Paulo');
 
 //Verifica Sessão
-if (!isset($_SESSION)){
-    session_start();
-}
 
 //Exibe mensagemBox
 if (!empty($_GET['msg'])){

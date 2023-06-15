@@ -38,7 +38,7 @@ class PontoModel
         }
     }
 
-    function pesquisaPontos($action, $idFuncionario, $mes = null)
+    function pesquisaPontos($action, $idFuncionario = null, $mes = null)
     {
         require '../connection.inc.php';
         if (empty(func_get_args())){
@@ -52,7 +52,10 @@ class PontoModel
         $sql .= " Ponto.hora";
         $sql .= " FROM Ponto";
         $sql .= " INNER JOIN Funcionario ON (Ponto.idFuncionario = Funcionario.idFuncionario)";
-        $sql .= " WHERE Ponto.idFuncionario = '$idFuncionario'";
+
+        if (!empty($idFuncionario)){
+            $sql .= " WHERE Ponto.idFuncionario = '$idFuncionario'";
+        }
 
         if (!empty($mes)){
             $sql .= " AND Ponto.mesPonto = '$mes'";

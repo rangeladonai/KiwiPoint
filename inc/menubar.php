@@ -33,31 +33,26 @@ if (!isset($_SESSION)){
 <html>
 <div class="menu">
     <div class="logo">
-        <img src="../imagem/logo-pdf.png" alt="" id="logo">
+        <a href="../view/main.php"><img src="../imagem/logo-pdf.png" alt="" id="logo"></a>
     </div>
     <div class="botoes">
         <?php if ($_SESSION['situacao'] == 'logouComoEmpresa'): ?>
-        <button class="button is-link is-light">Empresa</button>
-        <button class="button is-link is-light" onclick="funcionarios()">Funcionarios</button>
+        <button class="button is-link is-light"><a href="../view/dadosEmpresa.php">Empresa</a></button>
+        <button class="button is-link is-light"><a href="../view/consultaFuncionarios.php">Funcionarios</a></button>
         <?php endif; ?>
-        <button class="button is-link is-light">Registrar Ponto</button>
-        <button class="button is-link is-light">Consulta Pontos</button>
-        <button class="button is-warning is-light" style="float: right;" onclick="logoutBTN()">Logout</button>
+        <?php if ($_SESSION['situacao'] == 'logouComoFuncionario'): ?>
+        <button class="button is-link is-light" onclick="registraPontoLogado()">Registrar Ponto</button>
+        <?php endif; ?>
+        <button class="button is-warning is-light" style="float: right;"><a href="../view/home.php">Logout</a></button>
     </div>
     <span style="margin-left: 50%">User: <?=$_SESSION['user']?></span>
 </div>
-</html>
 
 <script>
-    function logoutBTN(){
-        let end = '../view/home.php';
-        window.location.href = end;
+    function registraPontoLogado(){
+        if (window.confirm('Deseja Registrar Ponto? Pontos não podem ser excluidos ou editados por funcionarios')){
+            window.location.href = '../controller/pontoControl.php?action=registraPontoLogado';
+        }
     }
-
-    function funcionarios(){
-        let end = '../view/consultaFuncionarios.php';
-        window.location.href = end;
-    }
-
-
 </script>
+</html>

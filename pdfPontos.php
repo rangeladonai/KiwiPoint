@@ -107,26 +107,19 @@ function validaData($data)
                         <th scope="col">Colaborador</th>
                     </tr>
                 </thead>
-            <tbody>
-            <?php foreach ($conteudo as $row):?>
-            <tr>
-                <td>
-                    <?=$row['idPonto']?>
-                </td>
-                <td>
-                    <?=validaData($row['diaPonto']) . '/' . validaData($row['mesPonto']) . '/' . validaData($row['anoPonto'])?>
-                </td>
-                <td>
-                    <?=$row['hora']?>
-                </td>
-                <td>
-                    <?=$row['nomeFuncionario']?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
+                <tbody>
+                    <?php foreach ($_SESSION['conteudoPonto'] as $row): ?>
+                    <tr>
+                        <td><?=$row['idPonto']?></td>
+                        <td><?=validaData($row['diaPonto']) . '/' . validaData($row['mesPonto']) . '/' . validaData($row['anoPonto'])?></td>
+                        <td><?=$row['hora']?></td>
+                        <td><?=$row['nomeFuncionario']?></td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
             </table>
-            </tbody>
         </div>
+    </div>
     </div>
     <div id="assinatura">
         <br><br>

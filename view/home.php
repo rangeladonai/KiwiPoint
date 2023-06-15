@@ -12,6 +12,8 @@ if (isset($_GET['msg'])){
         echo "<script>alert('ERRO!! dados incorretos. O ponto não foi registrado!')</script>";
     }else if ($_GET['msg'] == '303'){
         echo "<script>alert('ERRO!! Empresa não encontrada!')</script>";
+    } else if ($_GET['msg'] == '409'){
+        echo "<script>alert('ERRO!! Funcionario Inativado pela empresa!')</script>";
     }
 }
 ?>
@@ -49,20 +51,20 @@ if (isset($_GET['msg'])){
 
             <div id="empresa" name="empresa">
                 <br>
-
                 <br>
+                <span style="text-align: center; display:block; margin:0 auto;">Entrar Empresa</span>
                 <input type="email" id="emailEmpresaLogin" class="emailEmpresaLogin" name="emailEmpresaLogin" placeholder="Email..." required>
                 <br>
                 <input type="password" id="senhaEmpresaLogin" class="senhaEmpresaLogin" name="senhaEmpresaLogin" placeholder="Senha..." required>
                 <br>
                 <input type="button" class="entrar_empresa btn btn-success" onclick="empresa()" value="Entrar">
-
                 <br>
                 <small><a id="cad_empresa" href="../controller/empresaControl.php?action=cadastraEmpresa">Cadastrar Empresa</a></small>
             </div>
 
             <div id="funcionario" name="funcionario">
-                <input type="text" id="codFuncionario" class="codFuncionario" name="codFuncionario" placeholder="Codigo..." required>
+                <span style="text-align: center; display:block; margin:0 auto;">Entrar Funcionario</span>
+                <input type="text" id="codFuncionario" class="codFuncionario" name="codFuncionario" placeholder="Email..." required>
                 <br>
                 <input type="password" id="senhaFuncionario" class="senhaFuncionario" name="senhaFuncionario" placeholder="Senha..." required>
                 <br>
@@ -70,7 +72,7 @@ if (isset($_GET['msg'])){
             </div>
 
             <div id="pin" name="pin">
-
+                <span style="text-align: center; display:block; margin:0 auto;">Registrar Ponto</span>
                 <input type="text" id="codFuncionario2" class="codFuncionario" name="codFuncionario2" placeholder="Código..." required>
                 <br>
                 <input type="password" id="senhaFuncionario2" class="senhaFuncionario" name="senhaFuncionario2" placeholder="Senha..." required>
@@ -80,7 +82,7 @@ if (isset($_GET['msg'])){
         </form>
     </div>
 
-    <script src="./home.js"></script>
+    <script src="../view/home.js"></script>
 </body>
 
 </html>

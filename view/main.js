@@ -4,7 +4,7 @@ function alteraConsulta(){
 }
 
 function pdf(){
-    var action = '../controller/pdfControl.php?action=montaPDF';
+    var action = '../controller/pdfControl.php';
     let form = document.getElementById('consultaPonto');
     form.action = action;
     form.submit();
