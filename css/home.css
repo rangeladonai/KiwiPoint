@@ -1,0 +1,257 @@
+#logo{
+    align-items: center;
+    margin: 0 auto;
+    display: block;
+    justify-content: center;
+    width: 230px;
+}
+
+body {
+    background: linear-gradient(116.82deg, #64e44a 0%, rgba(191, 228, 118) 59.27%, #59975c 97.92%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    position: inherit;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 28px;
+    justify-content: center;    
+    align-items: center;
+    border-radius: 1vh;    
+    border: none;
+    position: relative;
+    box-shadow: 0px 0px 12px 1px lightgrey;
+    top: 2vh;
+}
+
+@media (max-width: 75vh) {
+    .container {
+        width: 100%;
+        padding: 0 0vh;
+    }
+}
+
+#empresa {
+    margin: 0;
+    position: relative;
+    
+}
+
+#funcionario{
+    margin: 0;
+    position: relative;
+    padding:47px;
+}
+
+#emailEmpresaLogin {
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+
+}
+
+#senhaEmpresaLogin {
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+
+}
+
+#cad_empresa {
+    
+    margin: 0 auto;
+    margin-left: 109px;
+    
+    color: #666565;
+   
+}
+
+#cad_empresa:active{
+    color: blue;
+}
+
+#cad_empresa:hover{
+    color: black;
+}
+.entrar_empresa {
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    width: 21vh;
+
+}
+.mostrarLoginEmpresa {
+    position: relative;
+    border: none;
+    width: 106px;
+    font-weight: bold;
+   border-radius: 3px;
+    cursor: pointer;
+    background: #0f7a0f;
+    cursor: pointer;
+    color: white;    
+}
+.mostrarLoginEmpresa:active {
+    background: #7dbf7d;
+}
+.mostrarLoginEmpresa:hover {
+    background: #9ce69c;
+}
+
+.mostrarLoginFuncionario {
+    position: relative;
+    border-radius: 3px;
+    /* text-align: center; */
+    width: 106px;
+    border: none;
+    background: #0f7a0f;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;    
+}
+
+.mostrarLoginFuncionario :active{
+    background: #7dbf7d;
+}
+
+.mostrarLoginFuncionario:hover{
+    background: #7dbf7d;
+
+}
+
+.emailEmpresa{
+    /* text-align: center; */
+    width: 23vh;
+}
+
+.senhaEmpresa{
+    /* text-align: center; */
+    width: 23vh;
+}
+
+.codFuncionario{
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    /* text-align: center; */
+    width: 23vh;
+}
+
+.senhaFuncionario{
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 5px;
+    /* text-align: center; */
+    width: 23vh;
+
+}
+.entrarFuncionario{
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    width: 21vh;
+}
+.mostrarPinPonto{
+    position: relative;
+    border-radius: 3px;
+    /* text-align: center; */
+    border: none;
+    width: 106px;
+    background: #0f7a0f;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+}
+.mostrarPinPonto :active{
+    background: #7dbf7d;
+}
+
+.mostrarPinPonto:hover{
+    background: #7dbf7d;
+
+}
+#pin{
+    margin: 0;
+    position: relative;
+    padding: 47px;
+}
+.entrarPin{
+    display: block;
+    margin: 0 auto;
+    display: block;
+    margin: 0 auto;
+    width: 21vh;
+}
+#buttons{
+    margin-left: 3px;
+}
+#relogio{
+  color: #198019;
+  font-size: 2em;
+  font-family: 'Alarm Clock';
+  text-align: center;
+  justify-content: center;
+}
+@font-face {
+    font-family: 'Alarm Clock';
+    src: url('../css/font/DS-DIGIB.TTF') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+
+
+.loginCadastrar{
+    position: relative;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+}
+.caixa-branca-login{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: #a7f386;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition:0.5s ease-in-out;
+}
+.caixa-branca-login.active{
+    left: 50%;
+    
+}
+
+/*.container-login-cadastrar{
+    background: rgb(230, 5, 5);
+    padding: 28px;
+     
+    
+    border-radius: 1vh;    
+    border: none;
+    position: relative;
+    box-shadow: 0px 0px 12px 1px lightgrey;
+    top: 0;
+
+}*/

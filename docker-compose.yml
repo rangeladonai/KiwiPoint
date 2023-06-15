@@ -4,7 +4,7 @@ services:
   apache:
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: dockerfile
     container_name: php_letrim
     ports:
       - '80:80'
