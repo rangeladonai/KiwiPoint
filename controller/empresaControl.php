@@ -52,8 +52,9 @@ function loginEmpresa()
         $_SESSION['email'] = $row['email'];
         $_SESSION['user'] = $row['nomeEmpresa'];
         $_SESSION['situacao'] = 'logouComoEmpresa';
-        require_once '../controller/pontoControl.php';
-        consultaPontoMes();
+        // require_once '../controller/pontoControl.php';
+        // consultaPontoMes();
+        include '../view/main.php';
     } else {
         header('Location:../view/home.php?msg=303');
     }

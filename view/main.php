@@ -53,7 +53,7 @@ include_once '../connection.inc.php';
                                     $funcionarioModel = new FuncionarioModel();
                                     $funcionarios = $funcionarioModel->pesquisaFuncionariosDaEmpresa($_SESSION['idEmpresa']);
                                     if ($funcionarios->rowCount()){
-                                        while ($row = $funcionarios){
+                                        while ($row = $funcionarios->fetch(PDO::FETCH_ASSOC)){
                                             echo "<option value=" . $row['idFuncionario'] . ">" . $row['nomeFuncionario'] . " - " . $row['cpf'] . "</option>";
                                         }
                                     }
@@ -70,11 +70,14 @@ include_once '../connection.inc.php';
                         <th scope="col">#</th>
                         <th scope="col">Data/Hora</th>
                         <th scope="col">Funcionario</th>
+                        <th scope="col">Empresa</th>
                     </thead>
                     
                     <tbody id="content">
                     <?php
                     //var_dump($_SESSION);
+                        isset($_SESSION['mes']) ? $_SESSION['mes'] = $_SESSION['mes']: $_SESSION['mes'] = null;
+                        isset($_SESSION['id']) ? $_SESSION['id'] = $_SESSION['id']: $_SESSION['id'] = null;
                         require '../model/pontoModel.php';
                         $pontoModel = new PontoModel();
                         $pesquisaPontos = $pontoModel->pesquisaPontos($_SESSION['action'], $_SESSION['id'], $_SESSION['mes']);
@@ -85,6 +88,7 @@ include_once '../connection.inc.php';
                                     .'<td class="" scope="row">' . $row['idPonto'] . '</td>'
                                     .'<td class="" scope="row">' . $row['dataPonto'] . '</td>'
                                     .'<td class="" scope="row">' . $row['nomeFuncionario'] . '</td>'
+                                    .'<td class="" scope="row">' . $row['nomeEmpresa'] . '</td>'
                                     .'</tr>';
                             }
                         } else {

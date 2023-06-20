@@ -78,6 +78,7 @@ function validaData($data)
                         </td>
                     </tr>
                 </table>
+                <?php if (isset($_SESSION['situacao']) && $_SESSION['situacao'] == 'logouComoFuncionario'): ?>
                 <table class="table" id="table-info-empresa">
                     <tr>
                         <td>
@@ -88,6 +89,7 @@ function validaData($data)
                         </td>
                     </tr>
                 </table>
+                <?php endif; ?>
             </div>
         </div>
 

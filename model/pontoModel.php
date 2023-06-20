@@ -40,6 +40,7 @@ class PontoModel
 
     function pesquisaPontos($action, $idFuncionario = null, $mes = null)
     {
+        $idEmpresa = $_SESSION['idEmpresa'];
         require '../connection.inc.php';
         if (empty(func_get_args())){
             throw new Exception('pesquisaTodosPontos: parametros inválidos OU vazios');
@@ -49,12 +50,14 @@ class PontoModel
         $sql  = "SELECT Ponto.idPonto, Ponto.dataPonto,";
         $sql .= " Ponto.mesPonto, Ponto.diaPonto, Ponto.anoPonto,";
         $sql .= " Ponto.idFuncionario, Ponto.urlFoto, Funcionario.nomeFuncionario, Funcionario.idEmpresa, Funcionario.cpf,";
-        $sql .= " Ponto.hora";
+        $sql .= " Ponto.hora, Empresa.nomeEmpresa";
         $sql .= " FROM Ponto";
         $sql .= " INNER JOIN Funcionario ON (Ponto.idFuncionario = Funcionario.idFuncionario)";
+        $sql .= " INNER JOIN Empresa ON (Funcionario.idEmpresa = Empresa.idEmpresa)";
+        $sql .= " WHERE Empresa.idEmpresa = '$idEmpresa'";
 
         if (!empty($idFuncionario)){
-            $sql .= " WHERE Ponto.idFuncionario = '$idFuncionario'";
+            $sql .= " AND Ponto.idFuncionario = '$idFuncionario'";
         }
 
         if (!empty($mes)){

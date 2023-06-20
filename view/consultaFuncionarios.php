@@ -30,7 +30,7 @@ include_once '../inc/msg.php';
 </style>
 <body>
     <div class="container">
-        <button class="btn btn-success" style="float: right;"><a href="../controller/funcionarioControl.php?action=cadastraFuncionarioPage" id="adicionar">Cadastrar</a></button>
+        <button class="btn btn-primary" style="float: right;"><a href="../controller/funcionarioControl.php?action=cadastraFuncionarioPage" id="adicionar">Cadastrar</a></button>
         <table class="table">
             <tr>
                 <th>#</th>
