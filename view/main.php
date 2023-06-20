@@ -27,7 +27,9 @@ include_once '../connection.inc.php';
             <form action="../controller/pontoControl.php?action=consultaPontoMes" id="consultaPonto" name="consultaPonto" method="POST">
                 <thead>
                     <div id="cabecalho">
-                        <input type="hidden" value="<?=$_SESSION['id']?>">
+                        <?php if (isset($_SESSION['id'])){ ?>
+                            <input type="hidden" value="<?=$_SESSION['id']?>">
+                        <?php } ?>
                         <label for="mes">Mês:</label>
                         <select name="mes" id="mes">
                             <option value="">Todos</option>
