@@ -4,7 +4,7 @@ if (isset($_SESSION)){
 } else {
     session_start();
 }
-require '../controller/sistemaControl.php';
+require './controller/sistemaControl.php';
 if (isset($_GET['msg'])){
     if ($_GET['msg'] == '1'){
         echo "<script>alert('PONTO REGISTRADO')</script>";
@@ -31,7 +31,7 @@ if (isset($_GET['msg'])){
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <!--CSS. Cole aqui embaixo o CSS proprio da pagina-->
-    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="./css/home.css">
 </head>
 
 <body>
@@ -41,7 +41,7 @@ if (isset($_GET['msg'])){
         </div>
 
         <form action="" id="homeForm" name="homeForm" method="post">
-            <img src="../imagem/logo-pdf.png" alt="" id="logo">
+            <img src="./imagem/logo-pdf.png" alt="" id="logo">
             <hr>
             <div id="buttons">
                 <input type="button" class="mostrarLoginEmpresa" onclick="mostraLoginEmpresa()" value="Empresa">
@@ -59,7 +59,7 @@ if (isset($_GET['msg'])){
                 <br>
                 <input type="button" class="entrar_empresa btn btn-success" onclick="empresa()" value="Entrar">
                 <br>
-                <small><a id="cad_empresa" href="../controller/empresaControl.php?action=cadastraEmpresa">Cadastrar Empresa</a></small>
+                <small><a id="cad_empresa" href="./controller/empresaControl.php?action=cadastraEmpresa">Cadastrar Empresa</a></small>
             </div>
 
             <div id="funcionario" name="funcionario">
@@ -82,7 +82,7 @@ if (isset($_GET['msg'])){
         </form>
     </div>
 
-    <script src="../view/home.js"></script>
+    <script src="./view/home.js"></script>
 </body>
 
 </html>
