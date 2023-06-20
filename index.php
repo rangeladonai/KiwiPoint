@@ -1,2 +1,2 @@
 <?php
-include_once './view/home.php';
+header("Location:../view/home.php");
