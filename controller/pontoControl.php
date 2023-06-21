@@ -58,10 +58,16 @@ function consultaPontoMes()
 {
     $_SESSION['action'] = 'consultaPontoMes';
 
+    if (!empty($_REQUEST['funcionario'])){
+        $_SESSION['id'] = $_REQUEST['funcionario'];
+    } else {
+        $_SESSION['id'] = null;
+    }
+
     if (!empty($_REQUEST['mes'])){
         $_SESSION['mes'] = $_REQUEST['mes'];
     } else {
-        unset($_SESSION['mes']);
+        $_SESSION['mes'] = null;
     }
 
     include '../view/main.php';
