@@ -131,7 +131,8 @@ function validaData($data)
     <br><br><br><br>
     <small style="color: grey; justify-content: center; display: flex;">©created by KiwiPoint</small>
     <br>
-    
+    <br>
+    <a href="../view/main.php">Voltar</a>
 </body>
 </div>
 </html>
