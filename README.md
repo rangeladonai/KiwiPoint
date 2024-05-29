@@ -1,5 +1,5 @@
-# Letrim
-Letrim é um projeto em desenvolvimento para estudos &amp; portfólio.
+# KiwiPoint
+KiwiPoint é um projeto em desenvolvimento para estudos &amp; portfólio.
 Será um Sistema de ponto, inspirado no sistema "Tangerino".
 
 Neste projeto, irei utilizar tecnologias que tive pouco contato, para que eu possa melhorar minhas habilidades.
